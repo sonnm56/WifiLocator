@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WifiInfomation extends Activity implements OnClickListener {
+public class WifiInfomation extends Activity {
 	private static final String TAG = "WifiInfo";
 	WifiManager wifi;
 	BroadcastReceiver receiver;
@@ -37,33 +37,51 @@ public class WifiInfomation extends Activity implements OnClickListener {
 
 		textStatus = (TextView) findViewById(R.id.textStatus);
 		buttonScan = (Button) findViewById(R.id.buttonScan);
-		buttonScan.setOnClickListener(this);
+		
+		
+	}
+	public void onStart(){
+		super.onStart();
+		
+	}
+	public void onResume(){
+		super.onResume();
+		buttonScan.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View view) {
+				wifi.setWifiEnabled(true);
+				Toast.makeText(getApplicationContext(), "Scanning!!!",
+						Toast.LENGTH_LONG).show();
 
+				if (view.getId() == R.id.buttonScan) {
+					Log.d(TAG, "onClick() wifi.startScan()");
+					wifi.startScan();
+				}
+			}
+
+		});
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-
+		wifi.setWifiEnabled(true);
+		
 		if (receiver == null)
 			receiver = new WiFiScanReceiver();
 
 		registerReceiver(receiver, new IntentFilter(
 				WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 		Log.d(TAG, "onCreate()");
-	}
 
+	}
+	
 	@Override
 	public void onStop() {
+		super.onStop();	
+	}
+	public void onDestroy() {
 		unregisterReceiver(receiver);
+		wifi.setWifiEnabled(false);	
+		super.onDestroy();	
 	}
-
-	public void onClick(View view) {
-		Toast.makeText(this, "Scanning!!!",
-				Toast.LENGTH_LONG).show();
-
-		if (view.getId() == R.id.buttonScan) {
-			Log.d(TAG, "onClick() wifi.startScan()");
-			wifi.startScan();
-		}
-	}
-
+	
+	
 
 	class WiFiScanReceiver extends BroadcastReceiver {
 		
