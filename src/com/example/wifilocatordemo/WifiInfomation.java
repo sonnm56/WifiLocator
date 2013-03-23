@@ -53,7 +53,7 @@ public class WifiInfomation extends Activity {
 						Toast.LENGTH_LONG).show();
 
 				if (view.getId() == R.id.buttonScan) {
-					Log.d(TAG, "onClick() wifi.startScan()");
+					
 					wifi.startScan();
 				}
 			}
