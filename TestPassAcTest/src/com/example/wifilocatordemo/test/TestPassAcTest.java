@@ -18,7 +18,7 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	public TestPassAcTest(Class<TestPassAc> name) {
 		super(name);
 		TestPassAc testPassAC = getActivity();
-		//resulf = (EditText) testPassAC.findViewById(R.id.HintText);
+
 		
 	}
 	public TestPassAcTest(){
