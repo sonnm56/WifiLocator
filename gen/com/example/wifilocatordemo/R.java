@@ -15,17 +15,20 @@ public final class R {
         public static final int idc=0x7f020001;
     }
     public static final class id {
-        public static final int ScrollView01=0x7f070004;
-        public static final int buttonScan=0x7f070003;
-        public static final int function1=0x7f070000;
-        public static final int function2=0x7f070002;
-        public static final int function3=0x7f070001;
-        public static final int menu_settings=0x7f070006;
-        public static final int textStatus=0x7f070005;
+        public static final int ScrollView01=0x7f070006;
+        public static final int btOK=0x7f070000;
+        public static final int buttonScan=0x7f070005;
+        public static final int etPass=0x7f070001;
+        public static final int function1=0x7f070002;
+        public static final int function2=0x7f070004;
+        public static final int function3=0x7f070003;
+        public static final int menu_settings=0x7f070008;
+        public static final int textStatus=0x7f070007;
     }
     public static final class layout {
-        public static final int wifi_locator=0x7f030000;
-        public static final int wifiinfo=0x7f030001;
+        public static final int security=0x7f030000;
+        public static final int wifi_locator=0x7f030001;
+        public static final int wifiinfo=0x7f030002;
     }
     public static final class menu {
         public static final int wifiinfo=0x7f060000;
