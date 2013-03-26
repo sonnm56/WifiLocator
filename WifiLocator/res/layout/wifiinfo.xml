@@ -4,22 +4,23 @@
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
 
-  <Button 
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-    android:id="@+id/buttonScan"
-    android:text="Scan">
-  </Button>
+    <Button
+        android:id="@+id/buttonScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sScan" />
+
   <ScrollView 
     android:id="@+id/ScrollView01"
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content">
-    <TextView 
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content" 
-      android:id="@+id/textStatus"
-      android:text="WiFiDemo" />
   </ScrollView>
+
+  <TextView
+      android:id="@+id/textStatus"
+      android:layout_width="96dp"
+      android:layout_height="wrap_content"
+      android:text= "@string/status" />
 
 </LinearLayout>
 
