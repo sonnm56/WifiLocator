@@ -54,9 +54,9 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	  @SmallTest
 	  public void testStartingEmpty() {
 	    assertTrue("HintText field is empty", "".equals(HintText.getText().toString()));
-	    assertTrue("", "Enter your password".equals(HintText.getHint().toString()));
-	    assertTrue("HintText field is empty", "OK".equals(bt1.getText().toString()));
-	    assertTrue("", "Change your password ".equals(btChange.getText().toString()));
+	    assertTrue("Test HintText", "Enter your password".equals(HintText.getHint().toString()));
+	    assertTrue("Text in Button", "OK".equals(bt1.getText().toString()));
+	    assertTrue("Text in Button Change", "Change your password".equals(btChange.getText().toString()));
 	    
 	    
 	  }
