@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/idc"
+    android:background="@drawable/yz"
     tools:context=".WifiLocatorActivity" >
 
     <Button
@@ -11,23 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="46dp"
         android:text="@string/Button1" />
-
-    <Button
-        android:id="@+id/function3"
-        android:layout_width="185dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/function1"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Button3" />
-
-    <Button
-        android:id="@+id/function2"
-        android:layout_width="185dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/function3"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Button2" />
 
 </RelativeLayout>
