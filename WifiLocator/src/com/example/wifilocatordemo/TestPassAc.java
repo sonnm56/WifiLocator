@@ -15,12 +15,14 @@ public class TestPassAc extends Activity{
 private Button bt1;
 private String test;
 private EditText HintText;
+private Button	btChange;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pass);
 		HintText = (EditText) findViewById(R.id.HintText);
 		bt1 = (Button) findViewById(R.id.bt1);
+		btChange = (Button) findViewById(R.id.btChange);
 		bt1.setOnClickListener(new OnClickListener() {
 			
 			
