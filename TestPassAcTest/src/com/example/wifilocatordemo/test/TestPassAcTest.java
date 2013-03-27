@@ -1,7 +1,7 @@
 package com.example.wifilocatordemo.test;
 import junit.framework.Assert;
 import android.test.*;
-import com.example.wifilocatordemo.*;
+import com.example.wifilocatordemo.TestPassAc;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.SmallTest;

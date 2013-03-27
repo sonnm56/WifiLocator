@@ -75,12 +75,10 @@ public class WifiInfomation extends Activity {
 	}
 	public void onDestroy() {
 		unregisterReceiver(receiver);
-		wifi.setWifiEnabled(false);	
+		wifi.setWifiEnabled(false);
 		super.onDestroy();	
 	}
 	
-	
-
 	class WiFiScanReceiver extends BroadcastReceiver {
 		
 		@Override

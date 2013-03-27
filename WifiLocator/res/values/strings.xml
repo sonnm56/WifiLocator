@@ -11,5 +11,6 @@
     <string name="HintText">Enter your password</string>
     <string name="sScan">Scan</string>
     <string name="status">WiFi Locator Demo</string>
+    <string name="ChangePassword">Change Password</string>
 
 </resources>
