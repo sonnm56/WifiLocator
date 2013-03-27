@@ -30,7 +30,7 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 		activity = getActivity();
 	    HintText = (EditText)activity.findViewById(com.example.wifilocatordemo.R.id.HintText);
 	    bt1 = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.bt1);
-	    btChange = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.btChange); 
+	    btChange = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.bt1); 
 	}
 	protected void tearDown() throws Exception {
 	    super.tearDown();
