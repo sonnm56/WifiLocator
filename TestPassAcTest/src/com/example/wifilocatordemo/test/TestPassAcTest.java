@@ -11,12 +11,14 @@ import android.widget.EditText;
 public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc> {
 	EditText HintText;
 	Button bt1;
+	Button btChange;
 	TestPassAc activity;
+	
 
 	public TestPassAcTest(Class<TestPassAc> name) {
 		super(name);
 		TestPassAc testPassAC = getActivity();
-		//resulf = (EditText) testPassAC.findViewById(R.id.HintText);
+
 		
 	}
 	public TestPassAcTest(){
@@ -28,6 +30,7 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 		activity = getActivity();
 	    HintText = (EditText)activity.findViewById(com.example.wifilocatordemo.R.id.HintText);
 	    bt1 = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.bt1);
+	    btChange = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.bt1); 
 	}
 	protected void tearDown() throws Exception {
 	    super.tearDown();
@@ -38,19 +41,22 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	    assertNotNull(getActivity());
 	    assertNotNull(HintText);
 	    assertNotNull(bt1);
+	    assertNotNull(btChange);
 	  }
 	  
 	  @SmallTest
 	  public void testViewsVisible() {
 	    ViewAsserts.assertOnScreen(HintText.getRootView(), bt1);
 	    ViewAsserts.assertOnScreen(bt1.getRootView(), HintText);
+	    ViewAsserts.assertOnScreen(btChange.getRootView(), HintText);
 	  }
 	  
 	  @SmallTest
 	  public void testStartingEmpty() {
 	    assertTrue("HintText field is empty", "".equals(HintText.getText().toString()));
-	    assertTrue("", "Enter your password".equals(HintText.getHint().toString()));
-	    assertTrue("HintText field is empty", "OK".equals(bt1.getText().toString()));
+	    assertTrue("Test HintText", "Enter your password".equals(HintText.getHint().toString()));
+	    assertTrue("Text in Button", "OK".equals(bt1.getText().toString()));
+	    assertTrue("Text in Button Change", "Change your password".equals(btChange.getText().toString()));
 	    
 	    
 	  }
