@@ -81,18 +81,20 @@ public class WiFiDataBase {
                 KEY_WIFI}, null, null, null, null, null);
     }
     //---retrieves a particular place---    
-    public Cursor getPlace(String place) throws SQLException 
+    public String getPlace(String WiFiInfo) throws SQLException 
     {
 
         Cursor mCursor =
-                db.query(true, DATABASE_TABLE, new String[] {
-                KEY_PLACE, KEY_WIFI}, KEY_PLACE + "=?",new String[] {place}, null,
+                db.query(DATABASE_TABLE, new String[] {
+                KEY_PLACE, KEY_WIFI}, KEY_WIFI + "=?",new String[] {WiFiInfo},
                 null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
-        return mCursor;
+        
+        return mCursor.getString(0);
     }
+    
     //---updates a place---    
     public boolean updatePlace(String place, String WiFiInfo) 
     {
