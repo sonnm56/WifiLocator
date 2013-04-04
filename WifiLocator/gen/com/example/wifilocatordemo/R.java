@@ -20,6 +20,7 @@ public final class R {
         public static final int yz=0x7f020003;
     }
     public static final class id {
+<<<<<<< HEAD
         public static final int HintText=0x7f080007;
         public static final int bt1=0x7f080008;
         public static final int btAddPlace=0x7f080006;
@@ -37,6 +38,19 @@ public final class R {
         public static final int menu_settings=0x7f080010;
         public static final int textStatus=0x7f08000f;
         public static final int tvPlace=0x7f080005;
+=======
+        public static final int HintText=0x7f070000;
+        public static final int bt1=0x7f070001;
+        public static final int btChange=0x7f070002;
+        public static final int btOK=0x7f070005;
+        public static final int btOKChange=0x7f070004;
+        public static final int buttonScan=0x7f070008;
+        public static final int etChange=0x7f070003;
+        public static final int etPass=0x7f070006;
+        public static final int function1=0x7f070007;
+        public static final int menu_settings=0x7f07000a;
+        public static final int textStatus=0x7f070009;
+>>>>>>> 8fddcab296bf81336e9ff652ba7cdde4378b4ecd
     }
     public static final class layout {
         public static final int addplacepopup=0x7f030000;
@@ -49,16 +63,24 @@ public final class R {
         public static final int wifiinfo=0x7f070000;
     }
     public static final class string {
+<<<<<<< HEAD
         public static final int AddPlace=0x7f04000b;
+=======
+>>>>>>> 8fddcab296bf81336e9ff652ba7cdde4378b4ecd
         public static final int Button1=0x7f040002;
         public static final int Button2=0x7f040003;
         public static final int Button3=0x7f040004;
         public static final int Button4=0x7f040005;
+<<<<<<< HEAD
         public static final int CancelAddPlace=0x7f04000d;
         public static final int ChangePassword=0x7f040009;
         public static final int Guide=0x7f04000c;
         public static final int HintText=0x7f040006;
         public static final int StartFind=0x7f04000a;
+=======
+        public static final int ChangePassword=0x7f040009;
+        public static final int HintText=0x7f040006;
+>>>>>>> 8fddcab296bf81336e9ff652ba7cdde4378b4ecd
         public static final int app_name=0x7f040000;
         public static final int menu_settings=0x7f040001;
         public static final int sScan=0x7f040007;
