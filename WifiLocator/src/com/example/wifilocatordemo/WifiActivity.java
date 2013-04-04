@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class WifiActivity extends Activity {
 	private Button function1;
-	
+	private Button function2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -18,11 +18,20 @@ public class WifiActivity extends Activity {
 		function1 = (Button) findViewById(R.id.function1);
 		
 		function1.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(WifiActivity.this,WifiInfomation.class));
+			}
+		});
+		function2 = (Button) findViewById(R.id.function2);
+		
+		function2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(WifiActivity.this,WiFiUsingDatabase.class));
 			}
 		});
 	}

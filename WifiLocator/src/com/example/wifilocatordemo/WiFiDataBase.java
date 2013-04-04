@@ -81,7 +81,7 @@ public class WiFiDataBase {
                 KEY_WIFI}, null, null, null, null, null);
     }
     //---retrieves a particular place---    
-    public String getPlace(String WiFiInfo) throws SQLException 
+    public Cursor getPlace(String WiFiInfo) throws SQLException 
     {
 
         Cursor mCursor =
@@ -91,8 +91,8 @@ public class WiFiDataBase {
         if (mCursor != null) {
             mCursor.moveToFirst();
         }
+            return mCursor;
         
-        return mCursor.getString(0);
     }
     
     //---updates a place---    

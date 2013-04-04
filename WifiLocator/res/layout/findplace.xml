@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical" 
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:id="@+id/findplace">
+
+  	<Button
+  	    android:id="@+id/btStartFind"
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="wrap_content"
+  	    android:layout_alignParentLeft="true"
+  	    android:layout_alignParentTop="true"
+  	    android:layout_marginLeft="17dp"
+  	    android:layout_marginTop="18dp"
+  	    android:text="@string/StartFind" />
+  	<TextView
+  	    android:id="@+id/tvPlace"
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="wrap_content"
+  	    android:layout_alignLeft="@+id/btStartFind"
+  	    android:layout_below="@+id/btStartFind"
+  	    android:layout_marginTop="40dp"
+  	    android:text="" />
+  	
+  	<Button
+  	    android:id="@+id/btAddPlace"
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="wrap_content"
+  	    android:layout_alignBaseline="@+id/btStartFind"
+  	    android:layout_alignBottom="@+id/btStartFind"
+  	    android:layout_alignParentRight="true"
+  	    android:layout_marginRight="25dp"
+  	    android:text="@string/AddPlace" />
+
+  	<TextView
+  	    android:layout_width="wrap_content"
+  	    android:layout_height="wrap_content"
+  	    android:layout_alignParentBottom="true"
+  	    android:layout_centerHorizontal="true"
+  	    android:text="@string/Guide" />
+
+</RelativeLayout>
+
+
