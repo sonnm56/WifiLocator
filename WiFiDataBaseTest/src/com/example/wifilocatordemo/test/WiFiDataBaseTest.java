@@ -66,9 +66,31 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      assertEquals(c1.getString(1), "Fun");
 	      
 // test DeletePlace Function
-	      test.deletePlace("Strong");
+	      test.deletePlace("UET");
 	      sTest = test.getPlace("Strong");
-	      assertTrue(sTest == null);
+	      assertEquals(sTest, "Not Found");
+	      
+	      test.deletePlace("Ulis");
+	      sTest = test.getPlace("quiteStrong");
+	      assertEquals(sTest, "Not Found");
+	      
+	      test.deletePlace("Home");
+	      sTest = test.getPlace("veryStrong");
+	      assertEquals(sTest, "Not Found");
+	      
+	      test.deletePlace("Hostal");
+	      sTest = test.getPlace("Weak");
+	      assertEquals(sTest, "Not Found");
+	      
+	      test.deletePlace("Android");
+	      sTest = test.getPlace("Fun");
+	      assertEquals(sTest, "Not Found");
+	      
+	      test.deletePlace("Phone");
+	      sTest = test.getPlace("unclear");
+	      assertEquals(sTest, "Not Found");
+	      
+	      
 	    	  
 	      
 	  }
