@@ -38,7 +38,7 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 
 	  public void testPreConditions() {
 	      assertNotNull(test);
-// test insertPlace function    
+// test insertPlaceInfo function    
 	      test.insertPlace("UET", "Strong");
 	      c1 = test.getPlaceInfo("Strong");
 	      sTest = test.getPlace("Strong");
@@ -90,8 +90,23 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      sTest = test.getPlace("unclear");
 	      assertEquals(sTest, "Not Found");
 	      
+//test getPlace
+	      test.insertPlace("Face", "social");
+	      sTest = test.getPlace("social");
+	      assertEquals(sTest, "Face");
 	      
-	    	  
+	      test.insertPlace("E3", "sercurity");
+	      sTest = test.getPlace("sercurity");
+	      assertEquals(sTest, "E3");
+	      
+	      test.insertPlace("FastCafe", "can not be access");
+	      sTest = test.getPlace("can not be access");
+	      assertEquals(sTest, "FastCafe");
+	      
+	      test.insertPlace("Library", "public");
+	      sTest = test.getPlace("public");
+	      assertEquals(sTest, "Library");
+	     
 	      
 	  }
 	  @Override
