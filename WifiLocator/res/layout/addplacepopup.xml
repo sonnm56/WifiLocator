@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="@string/CancelAddPlace" />
+        android:text="@string/CancelAddPlace" 
+        android:onClick="onClickCancelAddPlace"/>
 
     <EditText
         android:id="@+id/etAddPlace"
@@ -20,11 +21,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:hint = "enter the place"
+        android:hint = ""
         android:ems="10" 
 		android:focusable="true"
-		android:focusableInTouchMode="true"
-        android:editable="true">
+		android:focusableInTouchMode="true">
     </EditText>
 
     <Button
@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/Button4" />
+        android:text="@string/OK" 
+        android:onClick="onClickOKAdd"/>
 
 </RelativeLayout>

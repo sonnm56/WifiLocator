@@ -9,24 +9,24 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class WifiActivity extends Activity {
-	private Button function1;
-	private Button function2;
+	private Button btWiFiInformation;
+	private Button btFindPlace;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wifi_locator);
-		function1 = (Button) findViewById(R.id.function1);
+		btWiFiInformation = (Button) findViewById(R.id.btWiFiInformation);
 		
-		function1.setOnClickListener(new OnClickListener() {
+		btWiFiInformation.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(WifiActivity.this,WifiInfomation.class));
 			}
 		});
-		function2 = (Button) findViewById(R.id.function2);
+		btFindPlace = (Button) findViewById(R.id.btFindPlace);
 		
-		function2.setOnClickListener(new OnClickListener() {
+		btFindPlace.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

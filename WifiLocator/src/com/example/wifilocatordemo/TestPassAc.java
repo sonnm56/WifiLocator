@@ -15,40 +15,40 @@ import android.widget.Toast;
 
 public class TestPassAc extends Activity{
 	private Button btChange,btOKChange;
-	private Button bt1;
+	private Button btOKPass;
 	private String test,pass;
-	private EditText HintText,etChange;
+	private EditText etHintText,etChange;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pass);
-		HintText = (EditText) findViewById(R.id.HintText);
+		etHintText = (EditText) findViewById(R.id.etHintText);
 		etChange = (EditText) findViewById(R.id.etChange);
 		etChange.setHint("");
 		etChange.setEnabled(false);
 		
 		btOKChange = (Button) findViewById(R.id.btOKChange);
 		btOKChange.setEnabled(false);
-		bt1 = (Button) findViewById(R.id.bt1);
+		btOKPass = (Button) findViewById(R.id.btOKPass);
 		btChange = (Button) findViewById(R.id.btChange);
 		
-		bt1.setOnClickListener(new OnClickListener() {	
+		btOKPass.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				SharedPreferences appPrefs = 
 			            getSharedPreferences("appPreferences", MODE_PRIVATE);
 		        pass = appPrefs.getString("editTextPref", "");
-				test= HintText.getText().toString();
+				test= etHintText.getText().toString();
 				if(test.compareTo(pass) == 0){
-					HintText.setText("");
+					etHintText.setText("");
 					startActivity(new Intent(TestPassAc.this,WifiActivity.class));
 				}
 				else {
 					Toast.makeText(getApplicationContext(), "Incorrect ! Try retype password",
 						Toast.LENGTH_SHORT).show();
-					HintText.setText("");
+					etHintText.setText("");
 				}
 			}
 		});
@@ -59,12 +59,12 @@ public class TestPassAc extends Activity{
 				SharedPreferences appPrefs = 
 			            getSharedPreferences("appPreferences", MODE_PRIVATE);
 		        pass = appPrefs.getString("editTextPref", "");
-				test= HintText.getText().toString();
+				test= etHintText.getText().toString();
 				if(test.compareTo(pass) == 0){
-					HintText.setText("");
-					HintText.setHint("");
-					HintText.setEnabled(false);
-					bt1.setEnabled(false);
+					etHintText.setText("");
+					etHintText.setHint("");
+					etHintText.setEnabled(false);
+					btOKPass.setEnabled(false);
 					
 					etChange.setEnabled(true);
 					etChange.setHint("Enter New Password");
@@ -84,9 +84,9 @@ public class TestPassAc extends Activity{
 					        etChange.setEnabled(false);
 							btOKChange.setEnabled(false);
 							
-							HintText.setHint("Enter your password");
-							HintText.setEnabled(true);
-							bt1.setEnabled(true);
+							etHintText.setHint("Enter your password");
+							etHintText.setEnabled(true);
+							btOKPass.setEnabled(true);
 							
 							
 						}
@@ -95,7 +95,7 @@ public class TestPassAc extends Activity{
 				else {
 					Toast.makeText(getApplicationContext(), "Incorrect ! Try retype password",
 						Toast.LENGTH_SHORT).show();
-					HintText.setText("");
+					etHintText.setText("");
 				}
 			}
 		});
@@ -107,7 +107,5 @@ public class TestPassAc extends Activity{
 		getMenuInflater().inflate(R.menu.wifiinfo, menu);
 		return true;
 	}
-	public String getHintText(){
-		return HintText.getHint().toString();
-	}
+	
 }

@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/HintText"
+        android:id="@+id/etHintText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,19 +20,19 @@
     </EditText>
 
     <Button
-        android:id="@+id/bt1"
+        android:id="@+id/btOKPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/HintText"
+        android:layout_below="@+id/etHintText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="@string/Button4" />
+        android:text="@string/OK" />
 
     <Button
         android:id="@+id/btChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bt1"
+        android:layout_below="@+id/btOKPass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:text="@string/ChangePassword" />
@@ -53,9 +53,9 @@
         android:id="@+id/btOKChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bt1"
+        android:layout_alignLeft="@+id/btOKPass"
         android:layout_below="@+id/etChange"
         android:layout_marginTop="42dp"
-        android:text="@string/Button4" />
+        android:text="@string/OK" />
 
 </RelativeLayout>

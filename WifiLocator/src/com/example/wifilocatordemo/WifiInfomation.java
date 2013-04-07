@@ -22,8 +22,8 @@ public class WifiInfomation extends Activity {
 	WifiManager wifi;
 	BroadcastReceiver receiver;
 
-	TextView textStatus;
-	Button buttonScan;
+	TextView tvStatus;
+	Button btScanWiFi;
 	StringBuilder sb = new StringBuilder();
 
 
@@ -33,8 +33,8 @@ public class WifiInfomation extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wifiinfo);
 
-		textStatus = (TextView) findViewById(R.id.textStatus);
-		buttonScan = (Button) findViewById(R.id.buttonScan);
+		tvStatus = (TextView) findViewById(R.id.tvStatus);
+		btScanWiFi = (Button) findViewById(R.id.btScanWiFi);
 		
 		
 	}
@@ -44,13 +44,13 @@ public class WifiInfomation extends Activity {
 	}
 	public void onResume(){
 		super.onResume();
-		buttonScan.setOnClickListener(new View.OnClickListener() {
+		btScanWiFi.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				wifi.setWifiEnabled(true);
 				Toast.makeText(getApplicationContext(), "Scanning!!!",
 						Toast.LENGTH_LONG).show();
 
-				if (view.getId() == R.id.buttonScan) {
+				if (view.getId() == R.id.btScanWiFi) {
 					Log.d(TAG, "onClick() wifi.startScan()");
 					wifi.startScan();
 				}
@@ -89,7 +89,7 @@ public class WifiInfomation extends Activity {
 		  		 sb.append((results.get(i)).toString());
 		  		 sb.append("\n");
 		  	 }
-		     textStatus.setText(sb);
+		     tvStatus.setText(sb);
 			
 		}
 

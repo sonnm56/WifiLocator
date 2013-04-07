@@ -1,5 +1,5 @@
 package com.example.wifilocatordemo.test;
-import junit.framework.Assert;
+//import junit.framework.Assert;
 import android.test.*;
 import com.example.wifilocatordemo.TestPassAc;
 
@@ -9,18 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc> {
-	EditText HintText;
-	Button bt1;
+	EditText etHintText;
+	Button btOKPass;
 	Button btChange;
+	Button btOKChange;
 	TestPassAc activity;
 	
 
 	public TestPassAcTest(Class<TestPassAc> name) {
 		super(name);
-		TestPassAc testPassAC = getActivity();
+		//TestPassAc testPassAC = getActivity();
 
 		
 	}
+	@SuppressWarnings("deprecation")
 	public TestPassAcTest(){
 		super("com.example.wifilocatordemo", TestPassAc.class);
 		
@@ -28,9 +30,9 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	protected void setUp() throws Exception {
 		super.setUp();
 		activity = getActivity();
-	    HintText = (EditText)activity.findViewById(com.example.wifilocatordemo.R.id.HintText);
-	    bt1 = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.bt1);
-	    btChange = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.bt1); 
+	    etHintText = (EditText)activity.findViewById(com.example.wifilocatordemo.R.id.etHintText);
+	    btOKPass = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.btOKPass);
+	    btChange = (Button)activity.findViewById(com.example.wifilocatordemo.R.id.btChange); 
 	}
 	protected void tearDown() throws Exception {
 	    super.tearDown();
@@ -39,23 +41,23 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	  @SmallTest
 	  public void testViewsCreated() {
 	    assertNotNull(getActivity());
-	    assertNotNull(HintText);
-	    assertNotNull(bt1);
+	    assertNotNull(etHintText);
+	    assertNotNull(btOKPass);
 	    assertNotNull(btChange);
 	  }
 	  
 	  @SmallTest
 	  public void testViewsVisible() {
-	    ViewAsserts.assertOnScreen(HintText.getRootView(), bt1);
-	    ViewAsserts.assertOnScreen(bt1.getRootView(), HintText);
-	    ViewAsserts.assertOnScreen(btChange.getRootView(), HintText);
+	    ViewAsserts.assertOnScreen(etHintText.getRootView(), btOKPass);
+	    ViewAsserts.assertOnScreen(btOKPass.getRootView(), etHintText);
+	    ViewAsserts.assertOnScreen(btChange.getRootView(), etHintText);
 	  }
 	  
 	  @SmallTest
 	  public void testStartingEmpty() {
-	    assertTrue("HintText field is empty", "".equals(HintText.getText().toString()));
-	    assertTrue("Test HintText", "Enter your password".equals(HintText.getHint().toString()));
-	    assertTrue("Text in Button", "OK".equals(bt1.getText().toString()));
+	    assertTrue("etHintText field is empty", "".equals(etHintText.getText().toString()));
+	    assertTrue("Test etHintText", "Enter your password".equals(etHintText.getHint().toString()));
+	    assertTrue("Text in Button", "OK".equals(btOKPass.getText().toString()));
 	    //assertTrue("Text in Button Change", "Change your password".equals(btChange.getText().toString()));
 	    
 	    
@@ -63,10 +65,10 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	  
 	  @SmallTest
 	  public void testKilosToPounds() {
-	    HintText.clearComposingText();
-	    bt1.clearComposingText();
+	    etHintText.clearComposingText();
+	    btOKPass.clearComposingText();
 	    
-	    TouchUtils.tapView(this, HintText);
+	    TouchUtils.tapView(this, etHintText);
 	    sendKeys("123abc");
 	    
 	    assertTrue("1 kilo is 2.20462262 pounds", true);
