@@ -106,8 +106,7 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      test.insertPlace("Library", "public");
 	      sTest = test.getPlace("public");
 	      assertEquals(sTest, "Library");
-	     
-	      
+
 	  }
 	  @Override
 	  
