@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/yz"
+    tools:context=".WifiLocatorActivity" >
+
+    <Button
+        android:id="@+id/btWiFiInformation"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:text="@string/WiFiInformation" />
+
+    <Button
+        android:id="@+id/btFindPlace"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btWiFiInformation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/FindPlace" />
+
+</RelativeLayout>

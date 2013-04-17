@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/images"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/etHintText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPassword" 
+        android:hint="@string/HintText">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btOKPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etHintText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/OK" />
+
+    <Button
+        android:id="@+id/btChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btOKPass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/ChangePassword" />
+
+    <EditText
+        android:id="@+id/etChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btChange"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="textPassword" >
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btOKChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btOKPass"
+        android:layout_below="@+id/etChange"
+        android:layout_marginTop="42dp"
+        android:text="@string/OK" />
+
+</RelativeLayout>

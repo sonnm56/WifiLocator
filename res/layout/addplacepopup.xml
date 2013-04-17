@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+    android:background="@color/red"
+     >
+
+    <Button
+        android:id="@+id/btCancelAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/CancelAddPlace" 
+        android:onClick="onClickCancelAddPlace"/>
+
+    <EditText
+        android:id="@+id/etAddPlace"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:hint = ""
+        android:ems="10" 
+		android:focusable="true"
+		android:focusableInTouchMode="true">
+    </EditText>
+
+    <Button
+        android:id="@+id/btOKAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/OK" 
+        android:onClick="onClickOKAdd"/>
+
+</RelativeLayout>
