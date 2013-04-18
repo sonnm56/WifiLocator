@@ -11,27 +11,30 @@ import android.widget.Button;
 public class WifiActivity extends Activity {
 	private Button btWiFiInformation;
 	private Button btFindPlace;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wifi_locator);
 		btWiFiInformation = (Button) findViewById(R.id.btWiFiInformation);
-		
+
 		btWiFiInformation.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(WifiActivity.this,WifiInfomation.class));
+				startActivity(new Intent(WifiActivity.this,
+						WifiInfomation.class));
 			}
 		});
 		btFindPlace = (Button) findViewById(R.id.btFindPlace);
-		
+
 		btFindPlace.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(WifiActivity.this,WiFiUsingDatabase.class));
+				startActivity(new Intent(WifiActivity.this,
+						WiFiUsingDatabase.class));
 			}
 		});
 	}
