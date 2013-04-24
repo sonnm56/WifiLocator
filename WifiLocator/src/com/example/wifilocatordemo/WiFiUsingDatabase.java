@@ -40,13 +40,13 @@ public class WiFiUsingDatabase extends Activity {
 	EditText etAddPlace;
 
 	StringBuilder sb = new StringBuilder();
-	WiFiDataBase WFdb;
+	WiFiDataBase wfdb;
 	PopupWindow popupWindow;
 
 	boolean click;
 
-	int MAX_SIZE_WIFI_LIST = 5;
-	int NUMBER_WIFI_INFO = 1;
+	int maxSize = 5;
+	int numberWiFiInfor = 1;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,8 @@ public class WiFiUsingDatabase extends Activity {
 		btStartFind = (Button) findViewById(R.id.btStartFind);
 		btAddPlace = (Button) findViewById(R.id.btAddPlace);
 
-		WFdb = new WiFiDataBase(this);
-		WFdb.open();
+		wfdb = new WiFiDataBase(this);
+		wfdb.open();
 	}
 
 	public void onStart() {
@@ -68,14 +68,13 @@ public class WiFiUsingDatabase extends Activity {
 
 	public void onResume() {
 		super.onResume();
-		WFdb.open();
+		wfdb.open();
 
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		wifi.setWifiEnabled(true);
-
-		if (receiver == null)
+		if (receiver == null) {
 			receiver = new WiFiScanReceiver();
-
+		}
 		registerReceiver(receiver, new IntentFilter(
 				WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 
@@ -89,7 +88,7 @@ public class WiFiUsingDatabase extends Activity {
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		wifi.setWifiEnabled(false);
-		WFdb.close();
+		wfdb.close();
 		super.onDestroy();
 	}
 
@@ -100,18 +99,17 @@ public class WiFiUsingDatabase extends Activity {
 			sb = new StringBuilder();
 			List<ScanResult> results = wifi.getScanResults();
 
-			int t = (results.size() < MAX_SIZE_WIFI_LIST) ? results.size()
-					: MAX_SIZE_WIFI_LIST;
+			int t = (results.size() < maxSize) ? results.size() : maxSize;
 			rankWifiListLevel(results, t);
 			rankWifiListBSSID(results, t);
-			if (NUMBER_WIFI_INFO < t) {
-				for (int i = 0; i < NUMBER_WIFI_INFO; i++) {
+			if (numberWiFiInfor < t) {
+				for (int i = 0; i < numberWiFiInfor; i++) {
 					sb.append((results.get(i)).BSSID.toString());
 					sb.append("|");
 					sb.append((int) (results.get(i)).level / 5);
 					sb.append("|\n");
 				}
-				for (int i = NUMBER_WIFI_INFO; i < 3; i++) {
+				for (int i = numberWiFiInfor; i < 3; i++) {
 					sb.append((results.get(i)).BSSID.toString());
 					sb.append("|\n");
 				}
@@ -122,13 +120,14 @@ public class WiFiUsingDatabase extends Activity {
 					sb.append((int) (results.get(i)).level / 5);
 					sb.append("|\n");
 				}
-			if (tvPlace.getText().toString().equals(""))
+			if (tvPlace.getText().toString().equals("")){
 				tvPlace.setText("Not Found");
-			String place = WFdb.getPlace(sb.toString());
+			}
+			String place = wfdb.getPlace(sb.toString());
 
-			if (!place.equals("Not Found"))
+			if (!place.equals("Not Found")){
 				tvPlace.setText(place);
-
+			}
 		}
 
 	}
@@ -144,10 +143,11 @@ public class WiFiUsingDatabase extends Activity {
 			ttt.schedule(new TimerTask() {
 				@Override
 				public void run() {
-					if (!click)
+					if (!click) {
 						wifi.startScan();
-					else
+					} else {
 						ttt.cancel();
+					}
 				}
 			}, 0, 1000);
 		}
@@ -168,9 +168,9 @@ public class WiFiUsingDatabase extends Activity {
 		etAddPlace = (EditText) popupView.findViewById(R.id.etAddPlace);
 		etAddPlace.setHint("enter the place");
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		if (imm != null)
+		if (imm != null) {
 			imm.showSoftInput(etAddPlace, 0);
-
+		}
 		popupWindow.showAsDropDown(btAddPlace, -450, 100);
 
 	}
@@ -184,10 +184,11 @@ public class WiFiUsingDatabase extends Activity {
 		ttt.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				if (!click)
+				if (!click) {
 					wifi.startScan();
-				else
+				} else {
 					ttt.cancel();
+				}
 			}
 		}, 0, 1000);
 		popupWindow.dismiss();
@@ -197,16 +198,17 @@ public class WiFiUsingDatabase extends Activity {
 	public void onClickOKAdd(View view) {
 		newPlace = etAddPlace.getText().toString();
 		etAddPlace.setText("");
-		WFdb.insertPlace(newPlace, sb.toString());
+		wfdb.insertPlace(newPlace, sb.toString());
 		click = false;
 		final Timer ttt = new Timer();
 		ttt.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				if (!click)
+				if (!click) {
 					wifi.startScan();
-				else
+				} else {
 					ttt.cancel();
+				}
 			}
 		}, 0, 1000);
 		tvPlace.setText(newPlace);
@@ -215,11 +217,11 @@ public class WiFiUsingDatabase extends Activity {
 
 	// ---------------Rank Wifi List Functions---------
 
-	public void rankWifiListBSSID(List<ScanResult> wifiList, int number) {
+	public void rankWifiListBSSID(List<ScanResult> wifiList, int numb) {
 
-		number = (wifiList.size() < number) ? wifiList.size() : number;
-		for (int i = 0; i < number; i++) {
-			for (int j = i + 1; j < number; j++) {
+		numb = (wifiList.size() < numb) ? wifiList.size() : numb;
+		for (int i = 0; i < numb; i++) {
+			for (int j = i + 1; j < numb; j++) {
 				if ((wifiList.get(i).BSSID.toString()).compareTo(wifiList
 						.get(j).BSSID.toString()) > 0) {
 					ScanResult change;
@@ -231,10 +233,10 @@ public class WiFiUsingDatabase extends Activity {
 		}
 	}
 
-	public void rankWifiListLevel(List<ScanResult> wifiList, int number) {
+	public void rankWifiListLevel(List<ScanResult> wifiList, int num) {
 
-		number = (wifiList.size() < number) ? wifiList.size() : number;
-		for (int i = 0; i < number; i++) {
+		num = (wifiList.size() < num) ? wifiList.size() : num;
+		for (int i = 0; i < num; i++) {
 			for (int j = i + 1; j < wifiList.size(); j++) {
 				if (wifiList.get(i).level < wifiList.get(j).level) {
 					ScanResult change;

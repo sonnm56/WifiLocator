@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.5" timestamp="2013-04-21T10:55:29.799">
+<file name="src/com/example/wifilocatordemo/TestPassAc.java">
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="SingularField" ruleset="Design Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#SingularField" priority="3">
+Perhaps 'btChange' could be replaced by a local variable.
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like savedInstanceState
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'savedInstanceState' is not assigned and could be declared final
+</violation>
+<violation beginline="38" endline="38" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like v
+</violation>
+<violation beginline="38" endline="38" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'v' is not assigned and could be declared final
+</violation>
+<violation beginline="40" endline="41" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'appPrefs' could be declared final
+</violation>
+<violation beginline="57" endline="57" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like v
+</violation>
+<violation beginline="57" endline="57" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'v' is not assigned and could be declared final
+</violation>
+<violation beginline="59" endline="60" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'appPrefs' could be declared final
+</violation>
+<violation beginline="74" endline="74" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like v
+</violation>
+<violation beginline="74" endline="74" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'v' is not assigned and could be declared final
+</violation>
+<violation beginline="75" endline="76" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'appPrefs' could be declared final
+</violation>
+<violation beginline="77" endline="77" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'prefsEditor' could be declared final
+</violation>
+<violation beginline="105" endline="105" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="TestPassAc" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'menu' is not assigned and could be declared final
+</violation>
+</file>
+<file name="src/com/example/wifilocatordemo/WiFiDataBase.java">
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="15" endline="15" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="16" endline="16" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="22" endline="22" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like db
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'ctx' is not assigned and could be declared final
+</violation>
+<violation beginline="35" endline="35" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'context' is not assigned and could be declared final
+</violation>
+<violation beginline="40" endline="40" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like db
+</violation>
+<violation beginline="40" endline="40" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'db' is not assigned and could be declared final
+</violation>
+<violation beginline="44" endline="44" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Java Logging Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/logging-java.html#AvoidPrintStackTrace" priority="3">
+Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like db
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'db' is not assigned and could be declared final
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'newVersion' is not assigned and could be declared final
+</violation>
+<violation beginline="72" endline="72" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'initialValues' could be declared final
+</violation>
+<violation beginline="94" endline="96" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'mCursor' could be declared final
+</violation>
+<violation beginline="97" endline="98" begincolumn="0" endcolumn="0" rule="IfStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="105" endline="105" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'mCursor' could be declared final
+</violation>
+<violation beginline="108" endline="108" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#OnlyOneReturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="108" endline="108" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="108" endline="108" begincolumn="0" endcolumn="0" rule="UnnecessaryParentheses" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#UnnecessaryParentheses" priority="3">
+This statement may have some unnecessary parentheses
+</violation>
+<violation beginline="110" endline="110" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="115" endline="115" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiDataBase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'args' could be declared final
+</violation>
+</file>
+<file name="src/com/example/wifilocatordemo/WiFiUsingDatabase.java">
+<violation beginline="31" endline="248" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Code Size Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#TooManyMethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="33" endline="33" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="33" endline="33" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="34" endline="34" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="34" endline="34" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="36" endline="36" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="36" endline="36" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="37" endline="37" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="37" endline="37" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="38" endline="38" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="38" endline="38" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="42" endline="42" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sb
+</violation>
+<violation beginline="43" endline="43" begincolumn="0" endcolumn="0" rule="VariableNamingConventions" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#VariableNamingConventions" priority="1">
+Variables should start with a lowercase character
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like MAX_SIZE_WIFI_LIST
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="SuspiciousConstantFieldName" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#SuspiciousConstantFieldName" priority="3">
+The field name indicates a constant but its modifiers do not
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="VariableNamingConventions" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#VariableNamingConventions" priority="1">
+Variables should start with a lowercase character
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="VariableNamingConventions" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#VariableNamingConventions" priority="1">
+Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="SuspiciousConstantFieldName" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#SuspiciousConstantFieldName" priority="3">
+The field name indicates a constant but its modifiers do not
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="VariableNamingConventions" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#VariableNamingConventions" priority="1">
+Variables should start with a lowercase character
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="VariableNamingConventions" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#VariableNamingConventions" priority="1">
+Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).
+</violation>
+<violation beginline="52" endline="52" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like savedInstanceState
+</violation>
+<violation beginline="52" endline="52" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'savedInstanceState' is not assigned and could be declared final
+</violation>
+<violation beginline="64" endline="67" begincolumn="0" endcolumn="0" rule="UselessOverridingMethod" ruleset="Basic Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UselessOverridingMethod" priority="3">
+Overriding method merely calls super
+</violation>
+<violation beginline="76" endline="77" begincolumn="0" endcolumn="0" rule="IfStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="85" endline="87" begincolumn="0" endcolumn="0" rule="UselessOverridingMethod" ruleset="Basic Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UselessOverridingMethod" priority="3">
+Overriding method merely calls super
+</violation>
+<violation beginline="99" endline="99" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like c
+</violation>
+<violation beginline="99" endline="99" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'c' is not assigned and could be declared final
+</violation>
+<violation beginline="99" endline="99" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'intent' is not assigned and could be declared final
+</violation>
+<violation beginline="101" endline="101" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'results' could be declared final
+</violation>
+<violation beginline="103" endline="103" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like t
+</violation>
+<violation beginline="103" endline="104" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 't' could be declared final
+</violation>
+<violation beginline="109" endline="109" begincolumn="0" endcolumn="0" rule="UnnecessaryParentheses" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#UnnecessaryParentheses" priority="3">
+This statement may have some unnecessary parentheses
+</violation>
+<violation beginline="115" endline="115" begincolumn="0" endcolumn="0" rule="UnnecessaryParentheses" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#UnnecessaryParentheses" priority="3">
+This statement may have some unnecessary parentheses
+</violation>
+<violation beginline="119" endline="124" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="120" endline="120" begincolumn="0" endcolumn="0" rule="UnnecessaryParentheses" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#UnnecessaryParentheses" priority="3">
+This statement may have some unnecessary parentheses
+</violation>
+<violation beginline="125" endline="126" begincolumn="0" endcolumn="0" rule="IfStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="127" endline="127" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'place' could be declared final
+</violation>
+<violation beginline="129" endline="130" begincolumn="0" endcolumn="0" rule="IfStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="129" endline="129" begincolumn="0" endcolumn="0" rule="PositionLiteralsFirstInComparisons" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#PositionLiteralsFirstInComparisons" priority="3">
+Position literals first in String comparisons
+</violation>
+<violation beginline="139" endline="139" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'view' is not assigned and could be declared final
+</violation>
+<violation beginline="147" endline="150" begincolumn="0" endcolumn="0" rule="ConfusingTernary" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConfusingTernary" priority="3">
+Avoid if (x != y) ..; else ..;
+</violation>
+<violation beginline="148" endline="148" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="150" endline="150" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="157" endline="157" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'view' is not assigned and could be declared final
+</violation>
+<violation beginline="160" endline="161" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'layoutInflater' could be declared final
+</violation>
+<violation beginline="162" endline="162" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'popupView' could be declared final
+</violation>
+<violation beginline="171" endline="172" begincolumn="0" endcolumn="0" rule="IfStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="187" endline="190" begincolumn="0" endcolumn="0" rule="ConfusingTernary" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConfusingTernary" priority="3">
+Avoid if (x != y) ..; else ..;
+</violation>
+<violation beginline="188" endline="188" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="190" endline="190" begincolumn="0" endcolumn="0" rule="IfElseStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfElseStmtsMustUseBraces" priority="3">
+Avoid using if...else statements without curly braces
+</violation>
+<violation beginline="206" endline="209" begincolumn="0" endcolumn="0" rule="ConfusingTernary" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#ConfusingTernary" priority="3">
+Avoid if (x != y) ..; else ..;
+</violation>
+<violation beginline="218" endline="218" begincolumn="0" endcolumn="0" rule="AvoidReassigningParameters" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#AvoidReassigningParameters" priority="2">
+Avoid reassigning parameters such as 'number'
+</violation>
+<violation beginline="234" endline="234" begincolumn="0" endcolumn="0" rule="AvoidReassigningParameters" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WiFiUsingDatabase" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#AvoidReassigningParameters" priority="2">
+Avoid reassigning parameters such as 'number'
+</violation>
+</file>
+<file name="src/com/example/wifilocatordemo/WifiActivity.java">
+<violation beginline="12" endline="12" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="SingularField" ruleset="Design Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/design.html#SingularField" priority="3">
+Perhaps 'btFindPlace' could be replaced by a local variable.
+</violation>
+<violation beginline="16" endline="16" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like savedInstanceState
+</violation>
+<violation beginline="16" endline="16" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'savedInstanceState' is not assigned and could be declared final
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like v
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'v' is not assigned and could be declared final
+</violation>
+<violation beginline="34" endline="34" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like v
+</violation>
+<violation beginline="34" endline="34" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'v' is not assigned and could be declared final
+</violation>
+<violation beginline="43" endline="43" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiActivity" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'menu' is not assigned and could be declared final
+</violation>
+</file>
+<file name="src/com/example/wifilocatordemo/WifiInfomation.java">
+<violation beginline="22" endline="22" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="22" endline="22" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="26" endline="26" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="26" endline="26" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sb
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="BeanMembersShouldSerialize" ruleset="JavaBean Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/javabeans.html#BeanMembersShouldSerialize" priority="3">
+Found non-transient, non-static member. Please mark as transient or provide accessors.
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="DefaultPackage" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DefaultPackage" priority="3">
+Use explicit scoping instead of the default package private level
+</violation>
+<violation beginline="32" endline="32" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like savedInstanceState
+</violation>
+<violation beginline="32" endline="32" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'savedInstanceState' is not assigned and could be declared final
+</violation>
+<violation beginline="41" endline="44" begincolumn="0" endcolumn="0" rule="UselessOverridingMethod" ruleset="Basic Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UselessOverridingMethod" priority="3">
+Overriding method merely calls super
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'view' is not assigned and could be declared final
+</violation>
+<violation beginline="63" endline="64" begincolumn="0" endcolumn="0" rule="IfStmtsMustUseBraces" ruleset="Braces Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/braces.html#IfStmtsMustUseBraces" priority="3">
+Avoid using if statements without curly braces
+</violation>
+<violation beginline="73" endline="75" begincolumn="0" endcolumn="0" rule="UselessOverridingMethod" ruleset="Basic Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#UselessOverridingMethod" priority="3">
+Overriding method merely calls super
+</violation>
+<violation beginline="85" endline="85" begincolumn="0" endcolumn="0" rule="ShortVariable" ruleset="Naming Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like c
+</violation>
+<violation beginline="85" endline="85" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'c' is not assigned and could be declared final
+</violation>
+<violation beginline="85" endline="85" begincolumn="0" endcolumn="0" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'intent' is not assigned and could be declared final
+</violation>
+<violation beginline="87" endline="87" begincolumn="0" endcolumn="0" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'results' could be declared final
+</violation>
+<violation beginline="89" endline="89" begincolumn="0" endcolumn="0" rule="UnnecessaryParentheses" ruleset="Controversial Rules" package="com.example.wifilocatordemo" class="WifiInfomation" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#UnnecessaryParentheses" priority="3">
+This statement may have some unnecessary parentheses
+</violation>
+</file>
+</pmd>
