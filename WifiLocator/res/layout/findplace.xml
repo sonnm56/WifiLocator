@@ -1,48 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical" 
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
-  android:id="@+id/findplace">
+    android:id="@+id/findplace"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-  	<Button
-  	    android:id="@+id/btStartFind"
-  	    android:layout_width="wrap_content"
-  	    android:layout_height="wrap_content"
-  	    android:layout_alignParentLeft="true"
-  	    android:layout_alignParentTop="true"
-  	    android:layout_marginLeft="17dp"
-  	    android:layout_marginTop="18dp"
-  	    android:text="@string/StartFind" 
-  	    android:onClick="onClickStartFind"/>
-  	 
-  	<TextView
-  	    android:id="@+id/tvPlace"
-  	    android:layout_width="wrap_content"
-  	    android:layout_height="wrap_content"
-  	    android:layout_alignLeft="@+id/btStartFind"
-  	    android:layout_below="@+id/btStartFind"
-  	    android:layout_marginTop="40dp"
-  	    android:text="" />
-  	
-  	<Button
-  	    android:id="@+id/btAddPlace"
-  	    android:layout_width="wrap_content"
-  	    android:layout_height="wrap_content"
-  	    android:layout_alignBaseline="@+id/btStartFind"
-  	    android:layout_alignBottom="@+id/btStartFind"
-  	    android:layout_alignParentRight="true"
-  	    android:layout_marginRight="25dp"
-  	    android:text="@string/AddPlace" 
-  	    android:onClick="onClickAddPlace"/>
+    <Button
+        android:id="@+id/btStartFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="18dp"
+        android:onClick="onClickStartFind"
+        android:text="@string/StartFind" />
 
-  	<TextView
-  	    android:layout_width="wrap_content"
-  	    android:layout_height="wrap_content"
-  	    android:layout_alignParentBottom="true"
-  	    android:layout_centerHorizontal="true"
-  	    android:text="@string/Guide" />
+    <TextView
+        android:id="@+id/tvPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btStartFind"
+        android:layout_below="@+id/btStartFind"
+        android:layout_marginTop="40dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btAddPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btStartFind"
+        android:layout_alignBottom="@+id/btStartFind"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:onClick="onClickAddPlace"
+        android:text="@string/AddPlace" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Guide" />
+
+    <Button
+        android:id="@+id/btImport"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_alignLeft="@+id/tvPlace"
+        android:layout_marginBottom="24dp"
+        android:text="@string/Import" 
+        android:onClick="onClickImport"
+        />
+
+    <Button
+        android:id="@+id/btExport"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btImport"
+        android:layout_alignBottom="@+id/btImport"
+        android:layout_alignRight="@+id/textView1"
+        android:text="@string/Export" 
+        android:onClick="onClickExport"/>
 
 </RelativeLayout>
-
-

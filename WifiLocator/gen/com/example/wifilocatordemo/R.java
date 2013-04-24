@@ -22,23 +22,26 @@ public final class R {
     public static final class id {
         public static final int btAddPlace=0x7f080006;
         public static final int btCancelAdd=0x7f080000;
-        public static final int btChange=0x7f080009;
-        public static final int btFindPlace=0x7f08000f;
-        public static final int btOK=0x7f08000c;
+        public static final int btChange=0x7f08000c;
+        public static final int btExport=0x7f080009;
+        public static final int btFindPlace=0x7f080012;
+        public static final int btImport=0x7f080008;
+        public static final int btOK=0x7f08000f;
         public static final int btOKAdd=0x7f080002;
-        public static final int btOKChange=0x7f08000b;
-        public static final int btOKPass=0x7f080008;
-        public static final int btScanWiFi=0x7f080010;
+        public static final int btOKChange=0x7f08000e;
+        public static final int btOKPass=0x7f08000b;
+        public static final int btScanWiFi=0x7f080013;
         public static final int btStartFind=0x7f080004;
-        public static final int btWiFiInformation=0x7f08000e;
+        public static final int btWiFiInformation=0x7f080011;
         public static final int etAddPlace=0x7f080001;
-        public static final int etChange=0x7f08000a;
-        public static final int etHintText=0x7f080007;
-        public static final int etPass=0x7f08000d;
+        public static final int etChange=0x7f08000d;
+        public static final int etHintText=0x7f08000a;
+        public static final int etPass=0x7f080010;
         public static final int findplace=0x7f080003;
-        public static final int menu_settings=0x7f080012;
+        public static final int menu_settings=0x7f080015;
+        public static final int textView1=0x7f080007;
         public static final int tvPlace=0x7f080005;
-        public static final int tvStatus=0x7f080011;
+        public static final int tvStatus=0x7f080014;
     }
     public static final class layout {
         public static final int addplacepopup=0x7f030000;
@@ -56,9 +59,11 @@ public final class R {
         public static final int AddPlace=0x7f04000b;
         public static final int CancelAddPlace=0x7f04000d;
         public static final int ChangePassword=0x7f040009;
+        public static final int Export=0x7f04000f;
         public static final int FindPlace=0x7f040003;
         public static final int Guide=0x7f04000c;
         public static final int HintText=0x7f040006;
+        public static final int Import=0x7f04000e;
         public static final int OK=0x7f040005;
         public static final int StartFind=0x7f04000a;
         public static final int WiFiInformation=0x7f040002;

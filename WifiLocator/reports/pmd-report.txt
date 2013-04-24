@@ -1,4 +1,31 @@
 
+src/com/example/wifilocatordemo/DataBaseHelper.java:25	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/DataBaseHelper.java:25	Private field 'dataBaseName' could be made final; it is only initialized in the declaration or constructor.
+src/com/example/wifilocatordemo/DataBaseHelper.java:27	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/DataBaseHelper.java:35	Parameter 'context' is not assigned and could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:35	Parameter 'dbName' is not assigned and could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:45	Found 'DD'-anomaly for variable 'checkDB' (lines '45'-'48').
+src/com/example/wifilocatordemo/DataBaseHelper.java:47	Local variable 'myPath' could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:49	Avoid empty catch blocks
+src/com/example/wifilocatordemo/DataBaseHelper.java:52	Avoid using if statements without curly braces
+src/com/example/wifilocatordemo/DataBaseHelper.java:54	Avoid if (x != y) ..; else ..;
+src/com/example/wifilocatordemo/DataBaseHelper.java:65	Local variable 'inFileName' could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:67	Local variable 'myInput' could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:70	Local variable 'outFileName' could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:73	Local variable 'myOutput' could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:78	Avoid assignments in operands
+src/com/example/wifilocatordemo/DataBaseHelper.java:78	Found 'DU'-anomaly for variable 'length' (lines '78'-'87').
+src/com/example/wifilocatordemo/DataBaseHelper.java:104	Avoid assignments in operands
+src/com/example/wifilocatordemo/DataBaseHelper.java:104	Found 'DU'-anomaly for variable 'length' (lines '104'-'113').
+src/com/example/wifilocatordemo/DataBaseHelper.java:116	Use block level rather than method level synchronization
+src/com/example/wifilocatordemo/DataBaseHelper.java:117	Avoid using if statements without curly braces
+src/com/example/wifilocatordemo/DataBaseHelper.java:122	Avoid variables with short names like db
+src/com/example/wifilocatordemo/DataBaseHelper.java:122	Document empty method
+src/com/example/wifilocatordemo/DataBaseHelper.java:122	Parameter 'db' is not assigned and could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:125	Avoid variables with short names like db
+src/com/example/wifilocatordemo/DataBaseHelper.java:125	Document empty method
+src/com/example/wifilocatordemo/DataBaseHelper.java:125	Parameter 'db' is not assigned and could be declared final
+src/com/example/wifilocatordemo/DataBaseHelper.java:125	Parameter 'newVersion' is not assigned and could be declared final
 src/com/example/wifilocatordemo/TestPassAc.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/TestPassAc.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/TestPassAc.java:17	Perhaps 'btChange' could be replaced by a local variable.
@@ -21,92 +48,90 @@ src/com/example/wifilocatordemo/TestPassAc.java:105	Parameter 'menu' is not assi
 src/com/example/wifilocatordemo/WiFiDataBase.java:13	Use explicit scoping instead of the default package private level
 src/com/example/wifilocatordemo/WiFiDataBase.java:14	Use explicit scoping instead of the default package private level
 src/com/example/wifilocatordemo/WiFiDataBase.java:15	Use explicit scoping instead of the default package private level
+src/com/example/wifilocatordemo/WiFiDataBase.java:16	Possible unsafe assignment to a non-final static field in a constructor.
 src/com/example/wifilocatordemo/WiFiDataBase.java:16	Use explicit scoping instead of the default package private level
 src/com/example/wifilocatordemo/WiFiDataBase.java:17	Use explicit scoping instead of the default package private level
-src/com/example/wifilocatordemo/WiFiDataBase.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/example/wifilocatordemo/WiFiDataBase.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/example/wifilocatordemo/WiFiDataBase.java:24	Avoid variables with short names like db
-src/com/example/wifilocatordemo/WiFiDataBase.java:24	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/example/wifilocatordemo/WiFiDataBase.java:27	Parameter 'ctx' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:35	Parameter 'context' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:40	Avoid variables with short names like db
-src/com/example/wifilocatordemo/WiFiDataBase.java:40	Parameter 'db' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:44	Avoid printStackTrace(); use a logger call instead.
-src/com/example/wifilocatordemo/WiFiDataBase.java:49	Avoid variables with short names like db
-src/com/example/wifilocatordemo/WiFiDataBase.java:49	Parameter 'db' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:49	Parameter 'newVersion' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:72	Local variable 'initialValues' could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:94	Local variable 'mCursor' could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:97	Avoid using if statements without curly braces
-src/com/example/wifilocatordemo/WiFiDataBase.java:105	Local variable 'mCursor' could be declared final
-src/com/example/wifilocatordemo/WiFiDataBase.java:108	A method should have only one exit point, and that should be the last statement in the method
-src/com/example/wifilocatordemo/WiFiDataBase.java:108	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiDataBase.java:108	This statement may have some unnecessary parentheses
+src/com/example/wifilocatordemo/WiFiDataBase.java:26	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/WiFiDataBase.java:27	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/WiFiDataBase.java:28	Avoid variables with short names like db
+src/com/example/wifilocatordemo/WiFiDataBase.java:28	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/WiFiDataBase.java:31	Parameter 'ctx' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:31	Parameter 'dbName' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:33	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/com/example/wifilocatordemo/WiFiDataBase.java:40	Parameter 'context' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:45	Avoid variables with short names like db
+src/com/example/wifilocatordemo/WiFiDataBase.java:45	Parameter 'db' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:46	Avoid using if statements without curly braces
+src/com/example/wifilocatordemo/WiFiDataBase.java:51	Avoid variables with short names like db
+src/com/example/wifilocatordemo/WiFiDataBase.java:51	Parameter 'db' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:75	Local variable 'initialValues' could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:96	Local variable 'mCursor' could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:100	Avoid using if statements without curly braces
+src/com/example/wifilocatordemo/WiFiDataBase.java:107	Local variable 'mCursor' could be declared final
+src/com/example/wifilocatordemo/WiFiDataBase.java:110	A method should have only one exit point, and that should be the last statement in the method
 src/com/example/wifilocatordemo/WiFiDataBase.java:110	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiDataBase.java:115	Local variable 'args' could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:31	This class has too many methods, consider refactoring it.
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:33	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:33	Use explicit scoping instead of the default package private level
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:34	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:34	Use explicit scoping instead of the default package private level
+src/com/example/wifilocatordemo/WiFiDataBase.java:110	This statement may have some unnecessary parentheses
+src/com/example/wifilocatordemo/WiFiDataBase.java:112	Avoid using if...else statements without curly braces
+src/com/example/wifilocatordemo/WiFiDataBase.java:117	Local variable 'args' could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:18	Avoid unused imports such as 'android.util.Log'
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:18	Avoid unused imports such as 'android.util.Log'
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:34	This class has too many methods, consider refactoring it.
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:35	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:35	Use explicit scoping instead of the default package private level
 src/com/example/wifilocatordemo/WiFiUsingDatabase.java:36	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/WiFiUsingDatabase.java:36	Use explicit scoping instead of the default package private level
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:37	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:37	Use explicit scoping instead of the default package private level
 src/com/example/wifilocatordemo/WiFiUsingDatabase.java:38	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/WiFiUsingDatabase.java:38	Use explicit scoping instead of the default package private level
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:42	Avoid variables with short names like sb
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:43	Variables should start with a lowercase character
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:48	Avoid excessively long variable names like MAX_SIZE_WIFI_LIST
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:48	The field name indicates a constant but its modifiers do not
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:48	Variables should start with a lowercase character
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:48	Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:49	The field name indicates a constant but its modifiers do not
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:49	Variables should start with a lowercase character
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:49	Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:52	Avoid excessively long variable names like savedInstanceState
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:52	Parameter 'savedInstanceState' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:64	Overriding method merely calls super
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:39	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:39	Use explicit scoping instead of the default package private level
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:40	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:40	Use explicit scoping instead of the default package private level
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:44	Avoid variables with short names like sb
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:50	Avoid excessively long variable names like MAX_SIZE_WIFI_LIST
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:50	This final field could be made static
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:51	This final field could be made static
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:54	Avoid excessively long variable names like savedInstanceState
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:54	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:65	Overriding method merely calls super
 src/com/example/wifilocatordemo/WiFiUsingDatabase.java:76	Avoid using if statements without curly braces
 src/com/example/wifilocatordemo/WiFiUsingDatabase.java:85	Overriding method merely calls super
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:99	Avoid variables with short names like c
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:99	Parameter 'c' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:99	Parameter 'intent' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:101	Local variable 'results' could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:103	Avoid variables with short names like t
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:103	Local variable 't' could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:109	This statement may have some unnecessary parentheses
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:115	This statement may have some unnecessary parentheses
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:119	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:120	This statement may have some unnecessary parentheses
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:125	Avoid using if statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:127	Local variable 'place' could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:129	Avoid using if statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:129	Position literals first in String comparisons
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:139	Parameter 'view' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:147	Avoid if (x != y) ..; else ..;
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:148	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:150	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:157	Parameter 'view' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:160	Local variable 'layoutInflater' could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:162	Local variable 'popupView' could be declared final
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:171	Avoid using if statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:187	Avoid if (x != y) ..; else ..;
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:188	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:190	Avoid using if...else statements without curly braces
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:206	Avoid if (x != y) ..; else ..;
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:218	Avoid reassigning parameters such as 'number'
-src/com/example/wifilocatordemo/WiFiUsingDatabase.java:234	Avoid reassigning parameters such as 'number'
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:98	Avoid variables with short names like c
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:98	Parameter 'c' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:98	Parameter 'intent' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:100	Local variable 'results' could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:102	Avoid variables with short names like t
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:102	Local variable 't' could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:107	This statement may have some unnecessary parentheses
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:113	This statement may have some unnecessary parentheses
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:117	Avoid using if...else statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:118	This statement may have some unnecessary parentheses
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:124	Local variable 'place' could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:126	Avoid using if statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:126	Position literals first in String comparisons
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:135	Parameter 'view' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:143	Avoid if (x != y) ..; else ..;
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:143	Avoid using if...else statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:144	Avoid using if...else statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:150	Parameter 'view' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:153	Local variable 'layoutInflater' could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:156	Local variable 'popupView' could be declared final
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:165	Avoid using if statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:181	Avoid if (x != y) ..; else ..;
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:181	Avoid using if...else statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:182	Avoid using if...else statements without curly braces
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:200	Avoid if (x != y) ..; else ..;
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:214	Avoid printStackTrace(); use a logger call instead.
+src/com/example/wifilocatordemo/WiFiUsingDatabase.java:226	Avoid printStackTrace(); use a logger call instead.
 src/com/example/wifilocatordemo/WifiActivity.java:12	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/WifiActivity.java:13	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/WifiActivity.java:13	Perhaps 'btFindPlace' could be replaced by a local variable.
-src/com/example/wifilocatordemo/WifiActivity.java:16	Avoid excessively long variable names like savedInstanceState
-src/com/example/wifilocatordemo/WifiActivity.java:16	Parameter 'savedInstanceState' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WifiActivity.java:23	Avoid variables with short names like v
-src/com/example/wifilocatordemo/WifiActivity.java:23	Parameter 'v' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WifiActivity.java:34	Avoid variables with short names like v
-src/com/example/wifilocatordemo/WifiActivity.java:34	Parameter 'v' is not assigned and could be declared final
-src/com/example/wifilocatordemo/WifiActivity.java:43	Parameter 'menu' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WifiActivity.java:15	Avoid excessively long variable names like savedInstanceState
+src/com/example/wifilocatordemo/WifiActivity.java:15	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WifiActivity.java:22	Avoid variables with short names like v
+src/com/example/wifilocatordemo/WifiActivity.java:22	Parameter 'v' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WifiActivity.java:32	Avoid variables with short names like v
+src/com/example/wifilocatordemo/WifiActivity.java:32	Parameter 'v' is not assigned and could be declared final
+src/com/example/wifilocatordemo/WifiActivity.java:40	Parameter 'menu' is not assigned and could be declared final
 src/com/example/wifilocatordemo/WifiInfomation.java:22	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/example/wifilocatordemo/WifiInfomation.java:22	Use explicit scoping instead of the default package private level
 src/com/example/wifilocatordemo/WifiInfomation.java:23	Found non-transient, non-static member. Please mark as transient or provide accessors.

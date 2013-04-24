@@ -95,3 +95,5 @@ public class WifiInfomation extends Activity {
 
 	}
 }
+
+
