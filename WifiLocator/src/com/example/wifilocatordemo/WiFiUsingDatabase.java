@@ -1,3 +1,8 @@
+/*
+ * This activity will show you the place
+ * and you can add, edit , load or save...
+ * */
+
 package com.example.wifilocatordemo;
 
 import java.io.IOException;
@@ -40,15 +45,16 @@ public class WiFiUsingDatabase extends Activity {
 	String newPlace;
 	EditText etAddPlace;
 	
-	StringBuilder sb = new StringBuilder();
+	StringBuilder sbWifiList = new StringBuilder();
 	WiFiDataBase wifiDataBase;
 	PopupWindow popupWindow;
 
 	boolean click;
 	
-	final int MAX_SIZE_WIFI_LIST = 1;
-	final int NUMBER_WIFI_INFO = 1;
+	static final int MAX_SIZE_WILIST = 4;
+	static final int NUMBER_WIFI_INFO = 2;
 	
+	//initial variable when start
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,11 +66,11 @@ public class WiFiUsingDatabase extends Activity {
 		
 		wifiDataBase = new WiFiDataBase(this,"XYz");
 		wifiDataBase.open();
+		click = false;
 	}
-	public void onStart(){
-		super.onStart();
-		
-	}
+	
+	// When this activity work
+	@Override
 	public void onResume(){
 		super.onResume();
 		wifiDataBase.open();
@@ -72,55 +78,59 @@ public class WiFiUsingDatabase extends Activity {
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		wifi.setWifiEnabled(true);
 			
-		if (receiver == null)
+		if (receiver == null){
 			receiver = new WiFiScanReceiver();
-
+		}
 		registerReceiver(receiver, new IntentFilter(
 				WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 	     
 	}
 	
-	@Override
-	public void onStop() {
-		super.onStop();	
-	}
+	//When this activity close
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		wifi.setWifiEnabled(false);
 		wifiDataBase.close();
 		super.onDestroy();	
 	}
-	
+
+	//---Receive information, and use ---
+	/*
+	 * This class will receive wifi information
+	 * and use it to show the place
+	 * Before 
+	 * */	
 	class WiFiScanReceiver extends BroadcastReceiver {
 		
 		@Override
-		public void onReceive(Context c, Intent intent) {
-		  	 sb = new StringBuilder();
+		public void onReceive(Context context, Intent intent) {
+		  	 sbWifiList = new StringBuilder();
 		  	 List<ScanResult> results = wifi.getScanResults();
 		  	 
-		  	 int t = (results.size()<MAX_SIZE_WIFI_LIST)? results.size():MAX_SIZE_WIFI_LIST;
-		  	 rankWifiListLevel(results,t);
-		  	 rankWifiListBSSID(results,t);
-		  	 if(NUMBER_WIFI_INFO<t){
+		  	 int maxNumberOfWifi;
+		  	 maxNumberOfWifi = (results.size()<MAX_SIZE_WILIST)? results.size():MAX_SIZE_WILIST;
+		  	 rankWifiListLevel(results,maxNumberOfWifi);
+		  	 rankWifiListBSSID(results,maxNumberOfWifi);
+		  	 if(NUMBER_WIFI_INFO<maxNumberOfWifi){
 		  		 for(int i = 0; i <NUMBER_WIFI_INFO; i++){
-		  			 sb.append((results.get(i)).BSSID.toString());
-		  			 sb.append("|");
-		  			 sb.append((int)(results.get(i)).level/5);
-		  			 sb.append("|\n");
+		  			 sbWifiList.append((results.get(i)).BSSID.toString());
+		  			 sbWifiList.append("|");
+		  			 sbWifiList.append((int)(results.get(i)).level/5);
+		  			 sbWifiList.append("|\n");
 		  		 }
-		  		 for(int i = NUMBER_WIFI_INFO; i <t; i++){
-		  			 sb.append((results.get(i)).BSSID.toString());
-		  			 sb.append("|\n");
+		  		 for(int i = NUMBER_WIFI_INFO; i <maxNumberOfWifi; i++){
+		  			 sbWifiList.append((results.get(i)).BSSID.toString());
+		  			 sbWifiList.append("|\n");
 		  		 }
 		  	 }
-		  	 else for(int i = 0; i <t; i++){
-	  			 sb.append((results.get(i)).BSSID.toString());
-	  			 sb.append("|");
-	  			 sb.append((int)(results.get(i)).level/5);
-	  			 sb.append("|\n");
+		  	 else for(int i = 0; i <maxNumberOfWifi; i++){
+	  			 sbWifiList.append((results.get(i)).BSSID.toString());
+	  			 sbWifiList.append("|");
+	  			 sbWifiList.append((int)(results.get(i)).level/5);
+	  			 sbWifiList.append("|\n");
 	  		 }
-		     tvPlace.setText(sb.toString());
-		     String place =wifiDataBase.getPlace(sb.toString());
+		     tvPlace.setText(sbWifiList.toString());
+		     String place =wifiDataBase.getPlace(sbWifiList.toString());
 		     
 		     if(!place.equals("Not Found")) tvPlace.setText(place);
 		    		
@@ -130,6 +140,13 @@ public class WiFiUsingDatabase extends Activity {
 	
 	
 //------------------On Click Functions-------------
+/*
+ * we have some button here:
+ * Find =  onClickStartFind to find place
+ * Add Place = onClickAddPlace to add new place
+ * Import = onClickImport to load informations from file
+ * Export = onClickExport to save informations to file
+ * */
 	
 	public void onClickStartFind(View view){
 		wifi.setWifiEnabled(true);
@@ -147,27 +164,54 @@ public class WiFiUsingDatabase extends Activity {
 	}
 	
 	public void onClickAddPlace(View view){
-		click = true;
-             	
-		LayoutInflater layoutInflater 
-            = (LayoutInflater)getBaseContext()
-             .getSystemService(LAYOUT_INFLATER_SERVICE);  
-		View popupView = layoutInflater.inflate(R.layout.addplacepopup, null);  
-		popupWindow = new PopupWindow(popupView,450,250); 
-		popupWindow.setTouchable(true);
-		popupWindow.setFocusable(true);
-		popupWindow.setOutsideTouchable(true);
+		if(!click){
+			click = true;
+        
+			//---Create a popUp window to input new place---
+			LayoutInflater layoutInflater 
+            	= (LayoutInflater)getBaseContext()
+            		.getSystemService(LAYOUT_INFLATER_SERVICE);  
+			View popupView = layoutInflater.inflate(R.layout.addplacepopup, null);  
+			popupWindow = new PopupWindow(popupView,450,250); 
+			popupWindow.setTouchable(true);
+			popupWindow.setFocusable(true);
+			popupWindow.setOutsideTouchable(true);
                     
-		etAddPlace = (EditText) popupView.findViewById(R.id.etAddPlace);
-		etAddPlace.setHint("enter the place");
-		InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		if(imm != null) 
-			imm.showSoftInput(etAddPlace, 0); 
+			etAddPlace = (EditText) popupView.findViewById(R.id.etAddPlace);
+			etAddPlace.setHint("enter the place");
+			InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			if(imm != null) 
+				imm.showSoftInput(etAddPlace, 0); 
             		
-		popupWindow.showAsDropDown(btAddPlace,-450,100);
-                
+			popupWindow.showAsDropDown(btAddPlace,-450,100);
+		}	
 	}	
-
+	
+	public void onClickImport(View view){
+		try {
+			wifiDataBase.importDataBase();
+			Toast.makeText(getApplicationContext(), "sucessful!",
+					Toast.LENGTH_SHORT).show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			Toast.makeText(getApplicationContext(), "unsucessful!",
+					Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	public void onClickExport(View view){
+		try {
+			wifiDataBase.exportDataBase();
+			Toast.makeText(getApplicationContext(), "sucessful!",
+					Toast.LENGTH_SHORT).show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			Toast.makeText(getApplicationContext(), "unsucessful!",
+					Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+//---OnClick Functions in popup AddPlace---
 	public void onClickCancelAddPlace(View view){
 			// TODO Auto-generated method stub
 		etAddPlace.setText("");
@@ -177,8 +221,12 @@ public class WiFiUsingDatabase extends Activity {
 				new TimerTask() {
 					@Override
 					public void run() {
-						if(!click) wifi.startScan();
-						else ttt.cancel();
+						if(!click){
+							wifi.startScan();
+						}
+						else{
+							ttt.cancel();
+						}
 					}
 				},0,1000);
     	
@@ -188,7 +236,9 @@ public class WiFiUsingDatabase extends Activity {
 	public void onClickOKAdd(View view){                				
 		newPlace = etAddPlace.getText().toString();
 		etAddPlace.setText("");
-		wifiDataBase.insertPlace(newPlace, sb.toString());
+		wifiDataBase.insertPlace(newPlace, sbWifiList.toString());
+		
+		newPlace = wifiDataBase.getPlace(sbWifiList.toString());
 
 		click = false;
 		final Timer ttt = new Timer();
@@ -203,30 +253,7 @@ public class WiFiUsingDatabase extends Activity {
 		tvPlace.setText(newPlace);
 		popupWindow.dismiss();
 	}
-	public void onClickImport(View view){
-		try {
-			wifiDataBase.dbHelper.importDataBase();
-			Toast.makeText(getApplicationContext(), "sucessful!",
-					Toast.LENGTH_SHORT).show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Toast.makeText(getApplicationContext(), "unsucessful!",
-					Toast.LENGTH_SHORT).show();
-		}
-	}
-	public void onClickExport(View view){
-		try {
-			wifiDataBase.dbHelper.exportDataBase();
-			Toast.makeText(getApplicationContext(), "sucessful!",
-					Toast.LENGTH_SHORT).show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Toast.makeText(getApplicationContext(), "unsucessful!",
-					Toast.LENGTH_SHORT).show();
-		}
-	}
+	
 //---------------Rank Wifi List Functions---------	
 	public void rankWifiListBSSID(List<ScanResult> wifiList, int numberOfBSSIDWifi){
 	

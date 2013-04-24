@@ -1,39 +1,23 @@
+/*
+ * This class is the main class of this app
+ * It has some links to move to the some
+ * thinks like information of this app
+ * how to use,...
+ * */
 package com.example.wifilocatordemo;
+
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
 public class WifiActivity extends Activity {
-	private Button btWiFiInformation;
-	private Button btFindPlace;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.wifi_locator);
-		btWiFiInformation = (Button) findViewById(R.id.btWiFiInformation);
-		
-		btWiFiInformation.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(WifiActivity.this,WifiInfomation.class));
-			}
-		});
-		btFindPlace = (Button) findViewById(R.id.btFindPlace);
-		
-		btFindPlace.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(WifiActivity.this,WiFiUsingDatabase.class));
-			}
-		});
 	}
 
 	@Override
@@ -42,5 +26,12 @@ public class WifiActivity extends Activity {
 		getMenuInflater().inflate(R.menu.wifiinfo, menu);
 		return true;
 	}
-
+	
+//---Some links to go to functions---
+	public void onClickWiFiInformation(View view){
+		startActivity(new Intent(WifiActivity.this,WifiInfomation.class));
+	}
+	public void onClickFindPlace(View view){
+		startActivity(new Intent(WifiActivity.this,WiFiUsingDatabase.class));
+	}
 }

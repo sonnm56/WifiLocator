@@ -16,8 +16,6 @@ import android.os.Environment;
 @SuppressLint("SdCardPath")
 public class DataBaseHelper extends SQLiteOpenHelper{
  
-    //The Android's default system path of your application database.
-    
 	public static final String  DB_PATH_SOURCE = Environment.getExternalStorageDirectory()
 														.getAbsolutePath() +  "/MyFiles/";
 	public static final String  DB_PATH_DEST = "/data/data/com.example.wifilocatordemo/databases/";
@@ -55,7 +53,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
  
     /**
-     * Copies your database from your local assets-folder to the just created empty database in the
+     * Copies your database from your local folder to the just created empty database in the
      * system folder, from where it can be accessed and handled.
      * This is done by transfering bytestream.
      * */
@@ -63,7 +61,6 @@ public class DataBaseHelper extends SQLiteOpenHelper{
  
     	//Open your local db as the input stream
     	String inFileName = DB_PATH_SOURCE + dataBaseName;
-    	 
     	InputStream myInput = new FileInputStream(inFileName);
         
     	// Path to the just created empty db

@@ -12,7 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
-        android:text="@string/WiFiInformation" />
+        android:text="@string/WiFiInformation" 
+        android:onClick="onClickWiFiInformation"/>
 
     <Button
         android:id="@+id/btFindPlace"
@@ -21,6 +22,7 @@
         android:layout_below="@+id/btWiFiInformation"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:text="@string/FindPlace" />
+        android:text="@string/FindPlace" 
+        android:onClick="onClickFindPlace"/>
 
 </RelativeLayout>

@@ -1,11 +1,15 @@
+/*
+ * The database used by this app
+ * Include some functions to easier to use
+ * */
 package com.example.wifilocatordemo;
 
+import java.io.IOException;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Environment;
 import android.util.Log;
 
 public class WiFiDataBase {
@@ -19,9 +23,6 @@ public class WiFiDataBase {
     static final String DATABASE_CREATE =
         "create table places ("
         + "place text not null, WiFiInfo text not null);";
-    public static final String  DATABASE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + 
-            "/MyFiles/";
-   
     
     final Context context;
     DatabaseHelper dbHelper;
@@ -35,6 +36,10 @@ public class WiFiDataBase {
     }
     
     //---Main class---
+    /*
+     * This class extend DataBaseHelper can be use to
+     * create , load and save data base
+     */
     static class DatabaseHelper extends DataBaseHelper{
         
     	DatabaseHelper(Context context){
@@ -57,7 +62,13 @@ public class WiFiDataBase {
     }
     
     
-/**************************FUNCTIONS*****************************/
+/**************************FUNCTIONS****************************
+ * 
+ * These methods make database to easy to use
+ * We can use these to make table, edit info
+ * find info and ex-import information from file
+ * 
+ * */
     
     //---opens the database---  
     public WiFiDataBase open() throws SQLException{
@@ -70,8 +81,21 @@ public class WiFiDataBase {
         dbHelper.close();
     }
     
+    //---import database from file---
+    public void importDataBase() throws IOException{
+    	dbHelper.importDataBase();
+    }
+    	 
+    //---export database to file---
+    public void exportDataBase() throws IOException{
+    	dbHelper.exportDataBase();
+    }
+    
     //---insert a place into the database--- 
     public long insertPlace(String place, String WiFiInfo){ 
+    	if(!getPlace(WiFiInfo).equals("Not Found"))
+    		return updatePlace(place, WiFiInfo);
+    	
         ContentValues initialValues = new ContentValues();
         
         initialValues.put(KEY_PLACE, place);
@@ -113,12 +137,12 @@ public class WiFiDataBase {
     }
     
     //---updates a place---    
-    public boolean updatePlace(String place, String WiFiInfo){
+    public long updatePlace(String place, String WiFiInfo){
         ContentValues args = new ContentValues();
         args.put(KEY_PLACE, place);
         args.put(KEY_WIFI, WiFiInfo);
         
         return db.update(DATABASE_TABLE, args, KEY_WIFI + "=?",
-        		new String[] {WiFiInfo}) > 0;
+        		new String[] {WiFiInfo}) ;
     }
 }
