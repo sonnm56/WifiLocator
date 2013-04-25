@@ -8,20 +8,7 @@ import android.test.RenamingDelegatingContext;
 
 public class WiFiDataBaseTest extends AndroidTestCase {
 	  private static final String TEST_FILE_PREFIX = "test_";
-	  private WiFiDataBase test;
-
-	  static final String KEY_PLACE = "place";
-	    static final String KEY_WIFI = "WiFiInfo";
-	    static final String TAG = "WiFiDataBase";
-	    static final String DATABASE_NAME = "WiFiDB";
-	    static final String DATABASE_TABLE = "places";
-	    static final int DATABASE_VERSION = 1;
-	    static final String DATABASE_CREATE =
-	        "create table places ("
-	        + "place text not null, WiFiInfo text not null);";
-	    
-	    
-	    
+	  private WiFiDataBase test;  
 	    
 	  @Override
 	  protected void setUp() throws Exception {
@@ -30,16 +17,19 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      RenamingDelegatingContext context 
 	          = new RenamingDelegatingContext(getContext(), TEST_FILE_PREFIX);
 
-	      test = new WiFiDataBase(context);
+	      test = new WiFiDataBase(context,"test_");
 	      test.open();
 	  }
 	  Cursor c1;
 	  String sTest;
 
 	  public void testPreConditions() {
-	      assertNotNull(test);
-// test insertPlaceInfo function    
-	      test.insertPlace("UET", "Strong");
+		  assertNotNull(test);
+	  }
+	  
+// test insertPlaceInfo function        
+	  public void testInsertPlace(){
+		  test.insertPlace("UET", "Strong");
 	      c1 = test.getPlaceInfo("Strong");
 	      sTest = test.getPlace("Strong");
 	      assertEquals(c1.getString(0), "UET");
@@ -64,8 +54,11 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      c1 = test.getPlaceInfo("Fun");
 	      assertEquals(c1.getString(0), "Android");
 	      assertEquals(c1.getString(1), "Fun");
-	      
+	  
+	  }
 // test DeletePlace Function
+	      
+	  public void testDeletePlace(){
 	      test.deletePlace("UET");
 	      sTest = test.getPlace("Strong");
 	      assertEquals(sTest, "Not Found");
@@ -89,8 +82,10 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      test.deletePlace("Phone");
 	      sTest = test.getPlace("unclear");
 	      assertEquals(sTest, "Not Found");
-	      
+	  }
+	  
 //test getPlace
+	  public void testGetPlace(){
 	      test.insertPlace("Face", "social");
 	      sTest = test.getPlace("social");
 	      assertEquals(sTest, "Face");
@@ -106,8 +101,8 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      test.insertPlace("Library", "public");
 	      sTest = test.getPlace("public");
 	      assertEquals(sTest, "Library");
-
 	  }
+	  
 	  @Override
 	  
 	  protected void tearDown() throws Exception {
