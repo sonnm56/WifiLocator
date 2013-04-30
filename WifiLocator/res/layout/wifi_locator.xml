@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="28dp"
         android:text="@string/WiFiInformation" 
         android:onClick="onClickWiFiInformation"/>
 
@@ -24,5 +24,16 @@
         android:layout_marginTop="28dp"
         android:text="@string/FindPlace" 
         android:onClick="onClickFindPlace"/>
+
+    <Button
+        android:id="@+id/btGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btFindPlace"
+        android:layout_alignRight="@+id/btFindPlace"
+        android:layout_below="@+id/btFindPlace"
+        android:layout_marginTop="37dp"
+        android:onClick="onClickGuide"
+        android:text="@string/Guide" />
 
 </RelativeLayout>

@@ -34,4 +34,7 @@ public class WifiActivity extends Activity {
 	public void onClickFindPlace(View view){
 		startActivity(new Intent(WifiActivity.this,WiFiUsingDatabase.class));
 	}
+	public void onClickGuide(View view){
+		startActivity(new Intent(WifiActivity.this,Guide.class));
+	}
 }

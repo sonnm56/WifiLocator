@@ -5,8 +5,7 @@
 package com.example.wifilocatordemo;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -14,6 +13,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+@SuppressLint("DefaultLocale")
 public class LocalDatabase {
     
 	static final String KEY_PLACE = "place";

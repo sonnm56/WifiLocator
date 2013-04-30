@@ -13,10 +13,18 @@
     <string name="ChangePassword">Change Password</string>
 	<string name="StartFind">Start</string>
 	<string name="AddPlace">Add Place</string>
-	<string name="Guide">click Add if the place is unchange</string>
 	<string name="CancelAddPlace">Cancel</string>
 	<string name="Import">Import</string>
 	<string name="Export">Export</string>
 	<color name="red">#ffff0000</color>
-	
+	<string name="Guide">Guide</string>
+	<string name="Guide1">Security:</string>
+	<string name="Guide2">       Default password is null, user can change by button "Change Password"</string>
+	<string name="Guide3">WiFi Information: </string>
+	<string name="Guide4">       Show the WiFi information which your device found</string>
+	<string name="Guide5">Find Place: show the position</string>
+	<string name="Guide6">       - Scan to show the position by button "Scan"</string>
+	<string name="Guide7">       - If the position does not find, you can add place by button "Add Place"</string>
+	<string name="Guide8">       - Import the position from database by button "Import"</string>
+	<string name="Guide9">       - Export the position to database by button "Export</string>
 </resources>
