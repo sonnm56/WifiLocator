@@ -46,8 +46,10 @@ public class WiFiUsingDatabase extends Activity {
 	EditText etAddPlace;
 	
 	StringBuilder sbWifiList = new StringBuilder();
-	WiFiDataBase wifiDataBase;
+	List<ScanResult> results;
+	LocalDatabase wifiDataBase;
 	PopupWindow popupWindow;
+	int timeDelayNotFound;
 
 	boolean click;
 	
@@ -64,9 +66,10 @@ public class WiFiUsingDatabase extends Activity {
 		btStartFind = (Button) findViewById(R.id.btStartFind);
 		btAddPlace = (Button) findViewById(R.id.btAddPlace);
 		
-		wifiDataBase = new WiFiDataBase(this,"XYz");
+		wifiDataBase = new LocalDatabase(this,"XYm");
 		wifiDataBase.open();
 		click = false;
+		timeDelayNotFound = 0;
 	}
 	
 	// When this activity work
@@ -105,37 +108,23 @@ public class WiFiUsingDatabase extends Activity {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 		  	 sbWifiList = new StringBuilder();
-		  	 List<ScanResult> results = wifi.getScanResults();
+		  	 results = wifi.getScanResults();
 		  	 
-		  	 int maxNumberOfWifi;
-		  	 maxNumberOfWifi = (results.size()<MAX_SIZE_WILIST)? results.size():MAX_SIZE_WILIST;
-		  	 rankWifiListLevel(results,maxNumberOfWifi);
-		  	 rankWifiListBSSID(results,maxNumberOfWifi);
-		  	 if(NUMBER_WIFI_INFO<maxNumberOfWifi){
-		  		 for(int i = 0; i <NUMBER_WIFI_INFO; i++){
-		  			 sbWifiList.append((results.get(i)).BSSID.toString());
-		  			 sbWifiList.append("|");
-		  			 sbWifiList.append((int)(results.get(i)).level/5);
-		  			 sbWifiList.append("|\n");
-		  		 }
-		  		 for(int i = NUMBER_WIFI_INFO; i <maxNumberOfWifi; i++){
-		  			 sbWifiList.append((results.get(i)).BSSID.toString());
-		  			 sbWifiList.append("|\n");
-		  		 }
+		  	 Functions.rankWifiListBSSID(results);
+		  	 String placeList =wifiDataBase.getPlace(Functions.makeWifiBSSID(results),
+		  			 										Functions.makeListWifiLevel(results));
+		  	 if(!placeList.equals("Not Found")){
+		  		tvPlace.setText(placeList);
+		  		timeDelayNotFound = 0;
+		  	 }else{
+		  		timeDelayNotFound++;
+		  		if(timeDelayNotFound == 10||tvPlace.getText().toString().equals("")){
+		  			timeDelayNotFound = 0;
+		  			tvPlace.setText(placeList);
+		  		}
 		  	 }
-		  	 else for(int i = 0; i <maxNumberOfWifi; i++){
-	  			 sbWifiList.append((results.get(i)).BSSID.toString());
-	  			 sbWifiList.append("|");
-	  			 sbWifiList.append((int)(results.get(i)).level/5);
-	  			 sbWifiList.append("|\n");
-	  		 }
-		     tvPlace.setText(sbWifiList.toString());
-		     String place =wifiDataBase.getPlace(sbWifiList.toString());
-		     
-		     if(!place.equals("Not Found")) tvPlace.setText(place);
-		    		
+		
 		}
-
 	}
 	
 	
@@ -236,10 +225,8 @@ public class WiFiUsingDatabase extends Activity {
 	public void onClickOKAdd(View view){                				
 		newPlace = etAddPlace.getText().toString();
 		etAddPlace.setText("");
-		wifiDataBase.insertPlace(newPlace, sbWifiList.toString());
+		wifiDataBase.insertPlace(newPlace,results );
 		
-		newPlace = wifiDataBase.getPlace(sbWifiList.toString());
-
 		click = false;
 		final Timer ttt = new Timer();
 		ttt.schedule(
@@ -254,39 +241,6 @@ public class WiFiUsingDatabase extends Activity {
 		popupWindow.dismiss();
 	}
 	
-//---------------Rank Wifi List Functions---------	
-	public void rankWifiListBSSID(List<ScanResult> wifiList, int numberOfBSSIDWifi){
-	
-		int number = (wifiList.size()<numberOfBSSIDWifi)? wifiList.size():numberOfBSSIDWifi;
-		for(int i = 0; i < number; i++){
-			 for(int j = i+1; j < number; j++){
-		  		if((wifiList.get(i).BSSID.toString()).compareTo(wifiList.get(j).BSSID.toString())>0){
-		  			
-		  			ScanResult change;
-		  			change = wifiList.get(i);
-		  			wifiList.set(i, wifiList.get(j));
-		  			wifiList.set(j, change);	  		
-		  		}
-		  	 }
-		 }   
-	}
-	
-	public void rankWifiListLevel(List<ScanResult> wifiList,int numberOfLevelWifi){
-		
-		int number = (wifiList.size()<numberOfLevelWifi)? wifiList.size():numberOfLevelWifi;
-		for(int i = 0; i < number; i++){
-			for(int j = i+1; j < wifiList.size(); j++){
-				if(wifiList.get(i).level < wifiList.get(j).level){
-			  			
-					ScanResult change;
-					change = wifiList.get(i);
-					wifiList.set(i, wifiList.get(j));
-					wifiList.set(j, change);
-			  		
-				}
-			}
-		}
-	}
 }
 
 

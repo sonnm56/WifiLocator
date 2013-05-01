@@ -1,40 +1,44 @@
 /*
- * The database used by this app
+ * The database used by this application
  * Include some functions to easier to use
  * */
 package com.example.wifilocatordemo;
 
 import java.io.IOException;
-import android.annotation.SuppressLint;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.wifi.ScanResult;
 import android.util.Log;
 
-@SuppressLint("DefaultLocale")
 public class LocalDatabase {
     
 	static final String KEY_PLACE = "place";
-    static final String[] wifi = {"Wifi_1", "Wifi_2", "Wifi_3", "Wifi_4"};
-    static final String TAG = "WiFiDataBase";
+    static final String KEY_WIFI_BSSID = "wifiBSSID";
+    static final String KEY_WIFI_LEVEL = "wifiLevel";
+    
+    static final String TAG = "LocalDataBase";
     static String dataBaseName;
-    static final String DATABASE_TABLE = "places";
+    static final String DATABASE_TABLE = "LocalPlaces";
     static final int DATABASE_VERSION = 1;
-    static final String DATABASE_CREATE =
-        "create table places ("
-        + "place text not null, WiFiInfo text not null);";
+    static final String DATABASE_CREATE_TABLE =
+        "create table "+DATABASE_TABLE+" ("
+        + KEY_PLACE+" text not null, "+KEY_WIFI_BSSID+" text not null, "+KEY_WIFI_LEVEL+" integer not null);";
     
     final Context context;
-    DatabaseHelper dbHelper;
+    localDatabaseHelper dbHelper;
     SQLiteDatabase db;
     
     //---Constructor---  
     public LocalDatabase(Context ctx, String dbName){
         this.context = ctx;
         dataBaseName = dbName.toLowerCase();
-        dbHelper = new DatabaseHelper(context);
+        dbHelper = new localDatabaseHelper(context);
     }
     
     //---Main class---
@@ -42,23 +46,23 @@ public class LocalDatabase {
      * This class extend DataBaseHelper can be use to
      * create , load and save data base
      */
-    static class DatabaseHelper extends DataBaseHelper{
+    static class localDatabaseHelper extends DataBaseHelper{
         
-    	DatabaseHelper(Context context){
+    	localDatabaseHelper(Context context){
             super(context,dataBaseName);    
         }
         
     	@Override
         public void onCreate(SQLiteDatabase db){
     		if(!checkDataBase())
-    				db.execSQL(DATABASE_CREATE);	
+    				db.execSQL(DATABASE_CREATE_TABLE);	
         }
     	
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS places");
+            db.execSQL("DROP TABLE IF EXISTS "+DATABASE_TABLE);
             onCreate(db);
         }
     }
@@ -94,14 +98,13 @@ public class LocalDatabase {
     }
     
     //---insert a place into the database--- 
-    public long insertPlace(String place, String WiFiInfo, int which_wifi){ 
-    	if(!getPlace(WiFiInfo, which_wifi).equals("Not Found"))
-    		return updatePlace(place, WiFiInfo, which_wifi);
+    public long insertPlace(String place, List<ScanResult> wifiList){ 
     	
-        ContentValues initialValues = new ContentValues();
+    	ContentValues initialValues = new ContentValues();
         
         initialValues.put(KEY_PLACE, place);
-        initialValues.put(wifi[which_wifi -1], WiFiInfo);
+        initialValues.put(KEY_WIFI_BSSID, Functions.makeWifiBSSID(wifiList));
+        initialValues.put(KEY_WIFI_LEVEL, Functions.makeWifiLevel(wifiList));
         
         return db.insert(DATABASE_TABLE, null, initialValues);
     }
@@ -112,39 +115,68 @@ public class LocalDatabase {
     }
     
     //---retrieves all the places---    
-    public Cursor getAllPlaces(int which_wifi){
+    public Cursor getAllPlaces(){
         return db.query(DATABASE_TABLE, new String[] {KEY_PLACE,
-                wifi[which_wifi - 1]}, null, null, null, null, null);
+                KEY_WIFI_BSSID}, null, null, null, null, null);
     }
     
     //---retrieves a place information---    
-    public Cursor getPlaceInfo(String WiFiInfo, int which_wifi) throws SQLException{
+    public Cursor getPlaceInfo(String wifiBSSID) throws SQLException{
         Cursor mCursor =
-                db.query(DATABASE_TABLE, new String[] {
-                KEY_PLACE, wifi[which_wifi - 1]}, wifi[which_wifi - 1] + "=?",new String[] {WiFiInfo},
-                null, null, null, null);
+                db.rawQuery("SELECT * FROM "+DATABASE_TABLE+" WHERE " + KEY_WIFI_BSSID + " = '" + wifiBSSID + "'", null);
         if (mCursor != null) mCursor.moveToFirst();
         
         return mCursor;        
     }
     
     //---retrieves a place---  
-    public String getPlace(String WiFiInfo, int which_wifi) throws SQLException{
-    	Cursor mCursor =getPlaceInfo(WiFiInfo, which_wifi);
-		   
-		if(mCursor.moveToFirst())
-		    return (mCursor.getString(0));
-		else 
+	public String getPlace(String wifiBSSID, int[] listLevel) throws SQLException{
+    	Cursor mCursor =getPlaceInfo(wifiBSSID);
+		String sPlace="";
+		int maxNumberPlace = mCursor.getCount();
+		List<String> place = new ArrayList<String>();
+		List<Integer> maxPercent = new ArrayList<Integer>();
+		
+    	if(maxNumberPlace!=0){
+			mCursor.moveToFirst();
+			do{	
+				int check = 0, t = place.size();
+				int percent = 10;
+				int[] wifiLevel = Functions.makeListWifiLevel(Integer.parseInt(mCursor.getString(2)));
+				for(int i= 0;i<wifiLevel.length;i++){
+					if(wifiLevel[i]-5 < listLevel[i] && listLevel[i] < wifiLevel[i]+5 )
+						percent = percent + 7*i+7; 
+				}
+				for(int i =0;i<t;i++){
+					if(mCursor.getString(0).equals(place.get(i))){
+						if(maxPercent.get(i)< percent) maxPercent.set(i, percent);
+						check = 1;
+						break;
+					}
+				}
+				if(check == 0){
+					place.add (mCursor.getString(0));
+					maxPercent.add(percent); 
+				}	
+			}while(mCursor.moveToNext());
+			sPlace = Functions.getPlaceAndPercent(place,maxPercent);
+			mCursor.close();
+			return sPlace;
+		}
+		else{
+			mCursor.close();
 			return "Not Found";
+		}
+			
     }
     
     //---updates a place---    
-    public long updatePlace(String place, String WiFiInfo, int which_wifi){
+    public long updatePlace(String place, String wifiBSSID){
         ContentValues args = new ContentValues();
         args.put(KEY_PLACE, place);
-        args.put(wifi[which_wifi - 1], WiFiInfo);
+        args.put(KEY_WIFI_BSSID, wifiBSSID);
         
-        return db.update(DATABASE_TABLE, args, wifi[which_wifi - 1] + "=?",
-        		new String[] {WiFiInfo}) ;
+        return db.update(DATABASE_TABLE, args, KEY_WIFI_BSSID + "=?",
+        		new String[] {wifiBSSID}) ;
     }
 }
