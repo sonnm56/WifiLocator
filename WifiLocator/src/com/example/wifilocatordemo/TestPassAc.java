@@ -1,3 +1,5 @@
+/* 
+ * */
 package com.example.wifilocatordemo;
 
 
@@ -14,7 +16,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class TestPassAc extends Activity{
-	private Button btChange,btOKChange;
+	private Button btChange;
+	private Button btOKChange;
 	private Button btOKPass;
 	private String test,pass;
 	private EditText etHintText,etChange;
@@ -23,28 +26,47 @@ public class TestPassAc extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pass);
-		etHintText = (EditText) findViewById(R.id.etHintText);
-		etChange = (EditText) findViewById(R.id.etChange);
+		etHintText = (EditText) findViewById(R.id.etHintText);//Enter password here
+		etChange = (EditText) findViewById(R.id.etChange);//Enter new password here to change
 		etChange.setHint("");
-		etChange.setEnabled(false);
+		
 		
 		btOKChange = (Button) findViewById(R.id.btOKChange);
-		btOKChange.setEnabled(false);
 		btOKPass = (Button) findViewById(R.id.btOKPass);
 		btChange = (Button) findViewById(R.id.btChange);
 		
+		
+		/*
+		 * Default state of the field for changing password is false, 
+		 * user cannot change password before enter the right password
+		 */
+		btOKChange.setEnabled(false);
+		etChange.setEnabled(false);
+		
+		//Set activity when click button "OK" after type the password to continue this app
 		btOKPass.setOnClickListener(new OnClickListener() {	
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				SharedPreferences appPrefs = 
 			            getSharedPreferences("appPreferences", MODE_PRIVATE);
-		        pass = appPrefs.getString("editTextPref", "");
+		        pass = appPrefs.getString("editTextPref", "");//Defaul password is "".
 				test= etHintText.getText().toString();
+				
+				/*
+				 * If the typed password matches the right password
+				 * start new activity has name WifiActivity
+				 */
 				if(test.compareTo(pass) == 0){
 					etHintText.setText("");
 					startActivity(new Intent(TestPassAc.this,WifiActivity.class));
 				}
+				
+				/*
+				 * If the password is wrong, create a small window
+				 * with the announcement. 
+				 * Reset the field to enter password
+				 */
 				else {
 					Toast.makeText(getApplicationContext(), "Incorrect ! Try retype password",
 						Toast.LENGTH_SHORT).show();
@@ -52,6 +74,10 @@ public class TestPassAc extends Activity{
 				}
 			}
 		});
+		
+		/*
+		 * Set the activity when click button change password 
+		 */
 		btChange.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -60,15 +86,29 @@ public class TestPassAc extends Activity{
 			            getSharedPreferences("appPreferences", MODE_PRIVATE);
 		        pass = appPrefs.getString("editTextPref", "");
 				test= etHintText.getText().toString();
+				
+				/*
+				 * If users enter the right password, they can change password
+				 */
 				if(test.compareTo(pass) == 0){
 					etHintText.setText("");
 					etHintText.setHint("");
+					
+					/*
+					 * Set the state of field to enter password is false
+					 * enable the field to change password
+					 */
 					etHintText.setEnabled(false);
 					btOKPass.setEnabled(false);
 					
 					etChange.setEnabled(true);
 					etChange.setHint("Enter New Password");
 					btOKChange.setEnabled(true);
+					
+					/*
+					 * Set the activity when user change password,
+					 * reset the value of the password
+					 */
 					btOKChange.setOnClickListener(new OnClickListener() {	
 						@Override
 						public void onClick(View v) {
@@ -92,6 +132,9 @@ public class TestPassAc extends Activity{
 						}
 					});
 				}
+				/*
+				 * else, create a small window to notice again
+				 */
 				else {
 					Toast.makeText(getApplicationContext(), "Incorrect ! Try retype password",
 						Toast.LENGTH_SHORT).show();
