@@ -44,6 +44,11 @@ public class Functions {
 		}
 	}
 	
+	/* change to move information from wifiList to database
+	 * There are 2 functions :
+	 * 		-makeWifiBSSID 
+	 * 		-makeWifiLevel
+	 * */
 	public static String makeWifiBSSID(List<ScanResult> wifiList){
 		StringBuilder wifiBSSID;
 		int number;
@@ -69,6 +74,10 @@ public class Functions {
 
 		return wifiLevel;
 	}
+	
+	/* Convert information from database and wifiList
+	 *  to list to use later
+	 * */
 	public static int[] makeListWifiLevel(int wifiLevel){
 		int number = wifiLevel;
 		int i = 0;
@@ -97,15 +106,15 @@ public class Functions {
 		}
 		if(otherPercent >0){
 			for(int i = 0;i<place.size();i++){ 
-				sPlace = sPlace + place.get(i)+"\t"+maxPercent.get(i)+"\n";
+				sPlace = sPlace + place.get(i)+"\t\t\t"+maxPercent.get(i)+"\n";
 			}
-			sPlace = sPlace + "Other\t"+otherPercent+"\n";
+			sPlace = sPlace + "Other"+"\t\t\t"+otherPercent+"\n";
 		}
 		else{
 			for(int i = 0;i<place.size();i++){ 
 				sPlace = sPlace + place.get(i)+"\t"+(int)(maxPercent.get(i)*90.0/(100-otherPercent))+"\n";
 			}
-			sPlace = sPlace + "Other\t"+10+"\n";
+			sPlace = sPlace + "Other"+"\t"+10+"\n";
 		}
 		
 		return sPlace;

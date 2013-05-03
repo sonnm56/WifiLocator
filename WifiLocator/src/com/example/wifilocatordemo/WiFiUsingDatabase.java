@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.app.Activity;
+import android.app.ProgressDialog;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -24,7 +25,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import android.view.inputmethod.InputMethodManager;
 
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,15 +39,17 @@ public class WiFiUsingDatabase extends Activity {
 	WifiManager wifi;
 	BroadcastReceiver receiver;
 	
-	TextView tvPlace;
+	TextView tvGlobalPlace;
+	TextView tvLocalPlace;
 	Button btStartFind;
 	Button btAddPlace;
-	String newPlace;
-	EditText etAddPlace;
+	EditText etAddGlobal;
+	EditText etAddLocal;
 	
 	StringBuilder sbWifiList = new StringBuilder();
 	List<ScanResult> results;
-	LocalDatabase wifiDataBase;
+	LocalDatabase localDataBase;
+	WiFiDataBase wifiDataBase;
 	PopupWindow popupWindow;
 	int timeDelayNotFound;
 
@@ -58,16 +60,20 @@ public class WiFiUsingDatabase extends Activity {
 	
 	//initial variable when start
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
 		setContentView(R.layout.findplace);
 
-		tvPlace = (TextView) findViewById(R.id.tvPlace);
+		tvGlobalPlace = (TextView) findViewById(R.id.tvGlobalPlace);
+		tvLocalPlace = (TextView) findViewById(R.id.tvLocalPlace);
+		
 		btStartFind = (Button) findViewById(R.id.btStartFind);
 		btAddPlace = (Button) findViewById(R.id.btAddPlace);
 		
-		wifiDataBase = new LocalDatabase(this,"XYm");
+		wifiDataBase = new WiFiDataBase(this, "globalplace");
 		wifiDataBase.open();
+		localDataBase = new LocalDatabase(this,"XYm");
+		localDataBase.open();
 		click = false;
 		timeDelayNotFound = 0;
 	}
@@ -76,7 +82,7 @@ public class WiFiUsingDatabase extends Activity {
 	@Override
 	public void onResume(){
 		super.onResume();
-		wifiDataBase.open();
+		localDataBase.open();
 				
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		wifi.setWifiEnabled(true);
@@ -93,6 +99,7 @@ public class WiFiUsingDatabase extends Activity {
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		wifi.setWifiEnabled(false);
+		localDataBase.close();
 		wifiDataBase.close();
 		super.onDestroy();	
 	}
@@ -111,16 +118,23 @@ public class WiFiUsingDatabase extends Activity {
 		  	 results = wifi.getScanResults();
 		  	 
 		  	 Functions.rankWifiListBSSID(results);
-		  	 String placeList =wifiDataBase.getPlace(Functions.makeWifiBSSID(results),
+		  	 String lovalPlaceList =localDataBase.getPlace(Functions.makeWifiBSSID(results),
 		  			 										Functions.makeListWifiLevel(results));
-		  	 if(!placeList.equals("Not Found")){
-		  		tvPlace.setText(placeList);
+		  	 String globalPlace = "Not Found";
+		  	 for(int i=0;i<results.size();i++){
+		  		globalPlace = wifiDataBase.getPlace(results.get(i).BSSID);
+		  		if (!globalPlace.equals("Not Found")) break;
+		  	 }
+		  	 tvGlobalPlace.setText(globalPlace);
+		  	 
+		  	 if(!lovalPlaceList.equals("Not Found")){
+		  		tvLocalPlace.setText(lovalPlaceList);
 		  		timeDelayNotFound = 0;
 		  	 }else{
 		  		timeDelayNotFound++;
-		  		if(timeDelayNotFound == 10||tvPlace.getText().toString().equals("")){
+		  		if(timeDelayNotFound == 5||tvLocalPlace.getText().toString().equals("")){
 		  			timeDelayNotFound = 0;
-		  			tvPlace.setText(placeList);
+		  			tvLocalPlace.setText(lovalPlaceList);
 		  		}
 		  	 }
 		
@@ -145,8 +159,12 @@ public class WiFiUsingDatabase extends Activity {
 					new TimerTask() {
 						@Override
 						public void run() {
-							if(!click) wifi.startScan();
-							else ttt.cancel();
+							if(!click){
+								wifi.startScan();
+							}
+							else{
+								ttt.cancel();
+							}
 						}
 					},0,1000);
 		}
@@ -166,18 +184,18 @@ public class WiFiUsingDatabase extends Activity {
 			popupWindow.setFocusable(true);
 			popupWindow.setOutsideTouchable(true);
                     
-			etAddPlace = (EditText) popupView.findViewById(R.id.etAddPlace);
-			etAddPlace.setHint("enter the place");
-			InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-			if(imm != null) 
-				imm.showSoftInput(etAddPlace, 0); 
-            		
+			etAddGlobal = (EditText) popupView.findViewById(R.id.etAddGlobal);
+			etAddGlobal.setHint("enter the global place");
+			etAddLocal = (EditText) popupView.findViewById(R.id.etAddLocal);
+			etAddLocal.setHint("enter the local place");
+					
 			popupWindow.showAsDropDown(btAddPlace,-450,100);
 		}	
 	}	
 	
 	public void onClickImport(View view){
 		try {
+			localDataBase.importDataBase();
 			wifiDataBase.importDataBase();
 			Toast.makeText(getApplicationContext(), "sucessful!",
 					Toast.LENGTH_SHORT).show();
@@ -190,6 +208,7 @@ public class WiFiUsingDatabase extends Activity {
 	
 	public void onClickExport(View view){
 		try {
+			localDataBase.exportDataBase();
 			wifiDataBase.exportDataBase();
 			Toast.makeText(getApplicationContext(), "sucessful!",
 					Toast.LENGTH_SHORT).show();
@@ -203,7 +222,6 @@ public class WiFiUsingDatabase extends Activity {
 //---OnClick Functions in popup AddPlace---
 	public void onClickCancelAddPlace(View view){
 			// TODO Auto-generated method stub
-		etAddPlace.setText("");
 		click = false;
 		final Timer ttt = new Timer();
 		ttt.schedule(
@@ -223,9 +241,10 @@ public class WiFiUsingDatabase extends Activity {
 	}
 	
 	public void onClickOKAdd(View view){                				
-		newPlace = etAddPlace.getText().toString();
-		etAddPlace.setText("");
-		wifiDataBase.insertPlace(newPlace,results );
+		
+		localDataBase.insertPlace(etAddLocal.getText().toString(),results );
+		for(int i=0;i<results.size();i++)
+			wifiDataBase.insertPlace(etAddGlobal.getText().toString(),results.get(i).BSSID);
 		
 		click = false;
 		final Timer ttt = new Timer();
@@ -233,11 +252,16 @@ public class WiFiUsingDatabase extends Activity {
 				new TimerTask() {
 					@Override
 					public void run() {
-						if(!click) wifi.startScan();
-						else ttt.cancel();
+						if(!click){
+							wifi.startScan();
+						}
+						else{
+							ttt.cancel();
+						}
 					}
 				},0,1000);
-		tvPlace.setText(newPlace);
+		tvGlobalPlace.setText(etAddGlobal.getText().toString());
+		tvLocalPlace.setText(etAddLocal.getText().toString());
 		popupWindow.dismiss();
 	}
 	

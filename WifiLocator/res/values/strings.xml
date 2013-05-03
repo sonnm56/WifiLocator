@@ -27,4 +27,7 @@
 	<string name="Guide7">       - If the position does not find, you can add place by button "Add Place"</string>
 	<string name="Guide8">       - Import the position from database by button "Import"</string>
 	<string name="Guide9">       - Export the position to database by button "Export</string>
+	<string name="Local">Local</string>
+	<string name="Global">Global</string>
+	
 </resources>

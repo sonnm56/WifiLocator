@@ -7,7 +7,7 @@
 
     <Button
         android:id="@+id/btStartFind"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -17,26 +17,6 @@
         android:text="@string/StartFind" />
 
     <TextView
-        android:id="@+id/tvPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btStartFind"
-        android:layout_below="@+id/btStartFind"
-        android:layout_marginTop="40dp"
-        android:text="" />
-
-    <Button
-        android:id="@+id/btAddPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btStartFind"
-        android:layout_alignBottom="@+id/btStartFind"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="25dp"
-        android:onClick="onClickAddPlace"
-        android:text="@string/AddPlace" />
-
-    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,27 +24,73 @@
         android:layout_centerHorizontal="true"
         android:text="@string/Guide" />
 
-    <Button
-        android:id="@+id/btImport"
-        style="?android:attr/buttonStyleSmall"
+    <TextView
+        android:id="@+id/tvPlace1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
-        android:layout_alignLeft="@+id/tvPlace"
-        android:layout_marginBottom="24dp"
-        android:text="@string/Import" 
-        android:onClick="onClickImport"
-        />
+        android:layout_alignLeft="@+id/btStartFind"
+        android:layout_below="@+id/btStartFind"
+        android:layout_marginTop="116dp"
+        android:text="@string/Global" />
+
+    <TextView
+        android:id="@+id/tvPlace2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btStartFind"
+        android:layout_below="@+id/btStartFind"
+        android:layout_marginTop="196dp"
+        android:text="@string/Local" />
+    
+    <Button
+        android:id="@+id/btAddPlace"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btStartFind"
+        android:layout_below="@+id/btStartFind"
+        android:layout_marginTop="25dp"
+        android:onClick="onClickAddPlace"
+        android:text="@string/AddPlace" />
 
     <Button
         android:id="@+id/btExport"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btImport"
-        android:layout_alignBottom="@+id/btImport"
-        android:layout_alignRight="@+id/textView1"
-        android:text="@string/Export" 
-        android:onClick="onClickExport"/>
+        android:layout_alignBaseline="@+id/btStartFind"
+        android:layout_alignBottom="@+id/btStartFind"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:onClick="onClickExport"
+        android:text="@string/Export" />
+
+    <Button
+        android:id="@+id/btImport"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btAddPlace"
+        android:layout_alignBottom="@+id/btAddPlace"
+        android:layout_alignRight="@+id/btExport"
+        android:onClick="onClickImport"
+        android:text="@string/Import" />
+
+    <TextView
+        android:id="@+id/tvGlobalPlace"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvPlace1"
+        android:layout_alignBottom="@+id/tvPlace1"
+        android:layout_centerHorizontal="true"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvLocalPlace"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvPlace2"
+        android:layout_alignBottom="@+id/tvPlace2"
+        android:layout_alignLeft="@+id/tvGlobalPlace"
+        android:text="" />
 
 </RelativeLayout>

@@ -42,14 +42,15 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     public boolean checkDataBase(){
     	SQLiteDatabase checkDB = null;
     	try{
-    		String myPath = DB_PATH_DEST + dataBaseName;
-    		checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+    		checkDB = SQLiteDatabase.openDatabase(DB_PATH_DEST + dataBaseName, null, SQLiteDatabase.OPEN_READONLY);
     	}catch(SQLiteException e){
     		//database does't exist yet.
     	}
-    	if(checkDB != null)checkDB.close();
+    	if(checkDB != null){
+    		checkDB.close();
+    	}
     	
-    	return checkDB != null ? true : false;
+    	return checkDB != null;
     }
  
     /**
@@ -60,14 +61,10 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     public void importDataBase() throws IOException{
  
     	//Open your local db as the input stream
-    	String inFileName = DB_PATH_SOURCE + dataBaseName;
-    	InputStream myInput = new FileInputStream(inFileName);
+    	InputStream myInput = new FileInputStream(DB_PATH_SOURCE + dataBaseName);
         
-    	// Path to the just created empty db
-    	String outFileName = DB_PATH_DEST + dataBaseName;
- 
     	//Open the empty db as the output stream
-    	OutputStream myOutput = new FileOutputStream(outFileName);
+    	OutputStream myOutput = new FileOutputStream(DB_PATH_DEST + dataBaseName);
  
     	//transfer bytes from the inputfile to the outputfile
     	byte[] buffer = new byte[1024];
@@ -85,15 +82,10 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     public void exportDataBase() throws IOException{
     	 
     	//Open your local db as the input stream
-    	String inFileName = DB_PATH_DEST + dataBaseName;
-    	 
-    	InputStream myInput = new FileInputStream(inFileName);
+    	InputStream myInput = new FileInputStream(DB_PATH_DEST + dataBaseName);
         
-    	// Path to the just created empty db
-    	String outFileName = DB_PATH_SOURCE + dataBaseName;
- 
     	//Open the empty db as the output stream
-    	OutputStream myOutput = new FileOutputStream(outFileName);
+    	OutputStream myOutput = new FileOutputStream(DB_PATH_SOURCE + dataBaseName);
  
     	//transfer bytes from the inputfile to the outputfile
     	byte[] buffer = new byte[1024];
@@ -108,17 +100,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     	myInput.close();
  
     }
-    
-    @Override
-	public synchronized void close() {
-    	if(myDataBase != null) myDataBase.close();
-    	super.close();
-	}
  
 	@Override
-	public void onCreate(SQLiteDatabase db) {}
+	public void onCreate(SQLiteDatabase database) {}
  
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
+	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {}
  
 }

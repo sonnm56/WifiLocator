@@ -29,17 +29,13 @@ public class WifiInfomation extends Activity {
 
 	/** Called when the activity is first created. */
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
 		setContentView(R.layout.wifiinfo);
 
 		tvStatus = (TextView) findViewById(R.id.tvStatus);
 		btScanWiFi = (Button) findViewById(R.id.btScanWiFi);
 		
-		
-	}
-	public void onStart(){
-		super.onStart();
 		
 	}
 	public void onResume(){
@@ -60,8 +56,9 @@ public class WifiInfomation extends Activity {
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		wifi.setWifiEnabled(true);
 		
-		if (receiver == null)
+		if (receiver == null){
 			receiver = new WiFiScanReceiver();
+		}
 
 		registerReceiver(receiver, new IntentFilter(
 				WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
@@ -69,10 +66,6 @@ public class WifiInfomation extends Activity {
 
 	}
 	
-	@Override
-	public void onStop() {
-		super.onStop();	
-	}
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		wifi.setWifiEnabled(false);
@@ -82,7 +75,7 @@ public class WifiInfomation extends Activity {
 	class WiFiScanReceiver extends BroadcastReceiver {
 		
 		@Override
-		public void onReceive(Context c, Intent intent) {
+		public void onReceive(Context context, Intent intent) {
 		  	 sb = new StringBuilder();
 		  	 List<ScanResult> results = wifi.getScanResults();
 		     for(int i = 0; i < results.size(); i++){

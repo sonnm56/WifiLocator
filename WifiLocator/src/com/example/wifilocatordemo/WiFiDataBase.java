@@ -26,7 +26,7 @@ public class WiFiDataBase {
     
     final Context context;
     DatabaseHelper dbHelper;
-    SQLiteDatabase db;
+    SQLiteDatabase sqDatabase;
     
     //---Constructor---  
     public WiFiDataBase(Context ctx, String dbName){
@@ -47,17 +47,18 @@ public class WiFiDataBase {
         }
         
     	@Override
-        public void onCreate(SQLiteDatabase db){
-    		if(!checkDataBase())
-    				db.execSQL(DATABASE_CREATE);	
+        public void onCreate(SQLiteDatabase database){
+    		if(!checkDataBase()){
+    				database.execSQL(DATABASE_CREATE);	
+    		}
         }
     	
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion){
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
-            db.execSQL("DROP TABLE IF EXISTS places");
-            onCreate(db);
+            database.execSQL("DROP TABLE IF EXISTS places");
+            onCreate(database);
         }
     }
     
@@ -72,7 +73,7 @@ public class WiFiDataBase {
     
     //---opens the database---  
     public WiFiDataBase open() throws SQLException{
-      	db = dbHelper.getWritableDatabase();	
+      	sqDatabase = dbHelper.getWritableDatabase();	
 	    return this;
     }
     
@@ -93,35 +94,35 @@ public class WiFiDataBase {
     
     //---insert a place into the database--- 
     public long insertPlace(String place, String WiFiInfo){ 
-    	if(!getPlace(WiFiInfo).equals("Not Found"))
-    		return updatePlace(place, WiFiInfo);
     	
-        ContentValues initialValues = new ContentValues();
+    	ContentValues initialValues = new ContentValues();
         
         initialValues.put(KEY_PLACE, place);
         initialValues.put(KEY_WIFI, WiFiInfo);
         
-        return db.insert(DATABASE_TABLE, null, initialValues);
+        return sqDatabase.insert(DATABASE_TABLE, null, initialValues);
     }
     
     //---deletes a place---    
     public boolean deletePlace(String place){
-        return db.delete(DATABASE_TABLE, KEY_PLACE + "=?",new String[] {place}) > 0;
+        return sqDatabase.delete(DATABASE_TABLE, KEY_PLACE + "=?",new String[] {place}) > 0;
     }
     
     //---retrieves all the places---    
     public Cursor getAllPlaces(){
-        return db.query(DATABASE_TABLE, new String[] {KEY_PLACE,
+        return sqDatabase.query(DATABASE_TABLE, new String[] {KEY_PLACE,
                 KEY_WIFI}, null, null, null, null, null);
     }
     
     //---retrieves a place information---    
     public Cursor getPlaceInfo(String WiFiInfo) throws SQLException{
         Cursor mCursor =
-                db.query(DATABASE_TABLE, new String[] {
+                sqDatabase.query(DATABASE_TABLE, new String[] {
                 KEY_PLACE, KEY_WIFI}, KEY_WIFI + "=?",new String[] {WiFiInfo},
                 null, null, null, null);
-        if (mCursor != null) mCursor.moveToFirst();
+        if (mCursor != null){
+        	mCursor.moveToFirst();
+        }
         
         return mCursor;        
     }
@@ -129,11 +130,13 @@ public class WiFiDataBase {
     //---retrieves a place---  
     public String getPlace(String WiFiInfo) throws SQLException{
     	Cursor mCursor =getPlaceInfo(WiFiInfo);
-		   
-		if(mCursor.moveToFirst())
-		    return (mCursor.getString(0));
-		else 
-			return "Not Found";
+		String place;   
+		if(mCursor.moveToFirst()){
+			place= (mCursor.getString(0));
+		}else{ 
+			place = "Not Found";
+		}
+		return place;
     }
     
     //---updates a place---    
@@ -142,7 +145,7 @@ public class WiFiDataBase {
         args.put(KEY_PLACE, place);
         args.put(KEY_WIFI, WiFiInfo);
         
-        return db.update(DATABASE_TABLE, args, KEY_WIFI + "=?",
+        return sqDatabase.update(DATABASE_TABLE, args, KEY_WIFI + "=?",
         		new String[] {WiFiInfo}) ;
     }
 }

@@ -15,8 +15,8 @@ import android.view.View;
 
 public class WifiActivity extends Activity {
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	protected void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
 		setContentView(R.layout.wifi_locator);
 	}
 
