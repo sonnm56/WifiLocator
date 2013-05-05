@@ -13,7 +13,7 @@ public class Functions {
 	//---------------Rank Wifi List Functions---------	
 	public static void rankWifiListBSSID(List<ScanResult> wifiList){
 		
-		int number = (wifiList.size()<LEVELS_NUMBER)? wifiList.size():LEVELS_NUMBER;
+		final int number = (wifiList.size()<LEVELS_NUMBER)? wifiList.size():LEVELS_NUMBER;
 		for(int i = 0; i < number; i++){
 			for(int j = i+1; j < wifiList.size(); j++){
 				if((wifiList.get(i).BSSID.toString()).compareTo(wifiList.get(j).BSSID.toString())>0){
@@ -29,7 +29,7 @@ public class Functions {
 		
 	public static void rankWifiListLevel(List<ScanResult> wifiList){
 			
-		int number = (wifiList.size()<LEVELS_NUMBER)? wifiList.size():LEVELS_NUMBER;
+		final int number = (wifiList.size()<LEVELS_NUMBER)? wifiList.size():LEVELS_NUMBER;
 		for(int i = 0; i < number; i++){
 			for(int j = i+1; j < wifiList.size(); j++){
 				if(wifiList.get(i).level < wifiList.get(j).level){
@@ -49,7 +49,7 @@ public class Functions {
 	 * 		-makeWifiBSSID 
 	 * 		-makeWifiLevel
 	 * */
-	public static String makeWifiBSSID(List<ScanResult> wifiList){
+	public static String makeWifiBSSID(final List<ScanResult> wifiList){
 		StringBuilder wifiBSSID;
 		int number;
 		
@@ -62,7 +62,7 @@ public class Functions {
 
 		return wifiBSSID.toString();
 	}
-	public static int makeWifiLevel(List<ScanResult> wifiList){
+	public static int makeWifiLevel(final List<ScanResult> wifiList){
 		int wifiLevel = 0;
 		int number;
 		
@@ -78,19 +78,19 @@ public class Functions {
 	/* Convert information from database and wifiList
 	 *  to list to use later
 	 * */
-	public static int[] makeListWifiLevel(int wifiLevel){
+	public static int[] makeListWifiLevel(final int wifiLevel){
 		int number = wifiLevel;
-		int i = 0;
+		int increase = 0;
 		int[] wifiLevelList = new int[4];
 		while(number!=0){
-			wifiLevelList[i] = - (number%100);
+			wifiLevelList[increase] = - (number%100);
 			number =(int) (number/100);
-			i++;
+			increase++;
 		}
 		return wifiLevelList;
 	}
-	public static int[] makeListWifiLevel(List<ScanResult> wifiList){
-		int numberLevel = wifiList.size();
+	public static int[] makeListWifiLevel(final List<ScanResult> wifiList){
+		final int numberLevel = wifiList.size();
 		int[] wifiLevelList = new int[numberLevel];
 		for(int i=0;i<numberLevel;i++){
 			wifiLevelList[i] = wifiList.get(i).level;
@@ -98,7 +98,7 @@ public class Functions {
 		return wifiLevelList;
 	}
 	
-	public static String getPlaceAndPercent(List<String> place, List<Integer> maxPercent){
+	public static String getPlaceAndPercent(final List<String> place,final List<Integer> maxPercent){
 		int otherPercent = 100;
 		String sPlace = "";
 		for(int i = 0;i<place.size();i++){ 

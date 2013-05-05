@@ -14,22 +14,21 @@ import android.util.Log;
 
 public class WiFiDataBase {
     
-	static final String KEY_PLACE = "place";
-    static final String KEY_WIFI = "WiFiInfo";
-    static final String TAG = "WiFiDataBase";
-    static String dataBaseName;
-    static final String DATABASE_TABLE = "places";
-    static final int DATABASE_VERSION = 1;
-    static final String DATABASE_CREATE =
+	private static final String KEY_PLACE = "place";
+	private static final String KEY_WIFI = "WiFiInfo";
+	private static final String TAG = "WiFiDataBase";
+	private static String dataBaseName;
+	private static final String DATABASE_TABLE = "places";
+	private static final String DATABASE_CREATE =
         "create table places ("
         + "place text not null, WiFiInfo text not null);";
     
-    final Context context;
-    DatabaseHelper dbHelper;
-    SQLiteDatabase sqDatabase;
+    private final Context context;
+    private final DatabaseHelper dbHelper;
+    private SQLiteDatabase sqDatabase;
     
     //---Constructor---  
-    public WiFiDataBase(Context ctx, String dbName){
+    public WiFiDataBase(final Context ctx,final String dbName){
         this.context = ctx;
         dataBaseName = dbName.toLowerCase();
         dbHelper = new DatabaseHelper(context);
@@ -42,19 +41,19 @@ public class WiFiDataBase {
      */
     static class DatabaseHelper extends DataBaseHelper{
         
-    	DatabaseHelper(Context context){
+    	DatabaseHelper(final Context context){
             super(context,dataBaseName);    
         }
         
     	@Override
-        public void onCreate(SQLiteDatabase database){
+        public void onCreate(final SQLiteDatabase database){
     		if(!checkDataBase()){
     				database.execSQL(DATABASE_CREATE);	
     		}
         }
     	
         @Override
-        public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion){
+        public void onUpgrade(final SQLiteDatabase database,final int oldVersion,final int newVersion){
             Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
                     + newVersion + ", which will destroy all old data");
             database.execSQL("DROP TABLE IF EXISTS places");
@@ -93,9 +92,9 @@ public class WiFiDataBase {
     }
     
     //---insert a place into the database--- 
-    public long insertPlace(String place, String WiFiInfo){ 
+    public long insertPlace(final String place,final String WiFiInfo){ 
     	
-    	ContentValues initialValues = new ContentValues();
+    	final ContentValues initialValues = new ContentValues();
         
         initialValues.put(KEY_PLACE, place);
         initialValues.put(KEY_WIFI, WiFiInfo);
@@ -104,7 +103,7 @@ public class WiFiDataBase {
     }
     
     //---deletes a place---    
-    public boolean deletePlace(String place){
+    public boolean deletePlace(final String place){
         return sqDatabase.delete(DATABASE_TABLE, KEY_PLACE + "=?",new String[] {place}) > 0;
     }
     
@@ -115,8 +114,8 @@ public class WiFiDataBase {
     }
     
     //---retrieves a place information---    
-    public Cursor getPlaceInfo(String WiFiInfo) throws SQLException{
-        Cursor mCursor =
+    public Cursor getPlaceInfo(final String WiFiInfo) throws SQLException{
+    	final Cursor mCursor =
                 sqDatabase.query(DATABASE_TABLE, new String[] {
                 KEY_PLACE, KEY_WIFI}, KEY_WIFI + "=?",new String[] {WiFiInfo},
                 null, null, null, null);
@@ -128,11 +127,11 @@ public class WiFiDataBase {
     }
     
     //---retrieves a place---  
-    public String getPlace(String WiFiInfo) throws SQLException{
-    	Cursor mCursor =getPlaceInfo(WiFiInfo);
+    public String getPlace(final String WiFiInfo) throws SQLException{
+    	final Cursor mCursor =getPlaceInfo(WiFiInfo);
 		String place;   
 		if(mCursor.moveToFirst()){
-			place= (mCursor.getString(0));
+			place= mCursor.getString(0);
 		}else{ 
 			place = "Not Found";
 		}
@@ -140,8 +139,8 @@ public class WiFiDataBase {
     }
     
     //---updates a place---    
-    public long updatePlace(String place, String WiFiInfo){
-        ContentValues args = new ContentValues();
+    public long updatePlace(final String place,final String WiFiInfo){
+    	final ContentValues args = new ContentValues();
         args.put(KEY_PLACE, place);
         args.put(KEY_WIFI, WiFiInfo);
         

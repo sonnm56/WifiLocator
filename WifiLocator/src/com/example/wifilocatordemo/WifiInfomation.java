@@ -19,17 +19,17 @@ import android.widget.Toast;
 
 public class WifiInfomation extends Activity {
 	private static final String TAG = "WifiInfo";
-	WifiManager wifi;
-	BroadcastReceiver receiver;
+	private WifiManager wifi;
+	private BroadcastReceiver receiver;
 
-	TextView tvStatus;
-	Button btScanWiFi;
-	StringBuilder sb = new StringBuilder();
+	private TextView tvStatus;
+	private Button btScanWiFi;
+	private StringBuilder sbStatus = new StringBuilder();
 
 
 	/** Called when the activity is first created. */
 	@Override
-	public void onCreate(Bundle bundle) {
+	public void onCreate(final Bundle bundle) {
 		super.onCreate(bundle);
 		setContentView(R.layout.wifiinfo);
 
@@ -41,7 +41,7 @@ public class WifiInfomation extends Activity {
 	public void onResume(){
 		super.onResume();
 		btScanWiFi.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
+			public void onClick(final View view) {
 				wifi.setWifiEnabled(true);
 				Toast.makeText(getApplicationContext(), "Scanning!!!",
 						Toast.LENGTH_LONG).show();
@@ -75,14 +75,14 @@ public class WifiInfomation extends Activity {
 	class WiFiScanReceiver extends BroadcastReceiver {
 		
 		@Override
-		public void onReceive(Context context, Intent intent) {
-		  	 sb = new StringBuilder();
-		  	 List<ScanResult> results = wifi.getScanResults();
+		public void onReceive(final Context context,final Intent intent) {
+		  	 sbStatus = new StringBuilder();
+		  	 final List<ScanResult> results = wifi.getScanResults();
 		     for(int i = 0; i < results.size(); i++){
-		  		 sb.append((results.get(i)).toString());
-		  		 sb.append("\n");
+		  		 sbStatus.append(results.get(i).toString());
+		  		 sbStatus.append("\n");
 		  	 }
-		     tvStatus.setText(sb);
+		     tvStatus.setText(sbStatus);
 			
 		}
 

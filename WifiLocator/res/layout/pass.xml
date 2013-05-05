@@ -7,9 +7,9 @@
 
     <EditText
         android:id="@+id/etHintText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="25dp"
         android:ems="10"
@@ -26,7 +26,8 @@
         android:layout_below="@+id/etHintText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="@string/OK" />
+        android:text="@string/OK"
+        android:onClick="onClickOKPass" />
 
     <Button
         android:id="@+id/btChange"
@@ -56,6 +57,7 @@
         android:layout_alignLeft="@+id/btOKPass"
         android:layout_below="@+id/etChange"
         android:layout_marginTop="42dp"
-        android:text="@string/OK" />
+        android:text="@string/OK"
+        android:onClick="onClickOKChange" />
 
 </RelativeLayout>

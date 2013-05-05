@@ -20,17 +20,16 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 														.getAbsolutePath() +  "/MyFiles/";
 	public static final String  DB_PATH_DEST = "/data/data/com.example.wifilocatordemo/databases/";
     
-    private String dataBaseName;
+    private final String dataBaseName;
  
-    private SQLiteDatabase myDataBase; 
- 
+   
    
     /**
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
      * @param context
      */
-    public DataBaseHelper(Context context,String dbName) {
+    public DataBaseHelper(final Context context,final String dbName) {
     	super(context, dbName, null, 1);
         dataBaseName = dbName;
     }	
@@ -61,13 +60,13 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     public void importDataBase() throws IOException{
  
     	//Open your local db as the input stream
-    	InputStream myInput = new FileInputStream(DB_PATH_SOURCE + dataBaseName);
+    	final InputStream myInput = new FileInputStream(DB_PATH_SOURCE + dataBaseName);
         
     	//Open the empty db as the output stream
-    	OutputStream myOutput = new FileOutputStream(DB_PATH_DEST + dataBaseName);
+    	final OutputStream myOutput = new FileOutputStream(DB_PATH_DEST + dataBaseName);
  
     	//transfer bytes from the inputfile to the outputfile
-    	byte[] buffer = new byte[1024];
+    	final byte[] buffer = new byte[1024];
     	int length;
     	while ((length = myInput.read(buffer))>0){
     		myOutput.write(buffer, 0, length);
@@ -82,13 +81,13 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     public void exportDataBase() throws IOException{
     	 
     	//Open your local db as the input stream
-    	InputStream myInput = new FileInputStream(DB_PATH_DEST + dataBaseName);
+    	final InputStream myInput = new FileInputStream(DB_PATH_DEST + dataBaseName);
         
     	//Open the empty db as the output stream
-    	OutputStream myOutput = new FileOutputStream(DB_PATH_SOURCE + dataBaseName);
+    	final OutputStream myOutput = new FileOutputStream(DB_PATH_SOURCE + dataBaseName);
  
     	//transfer bytes from the inputfile to the outputfile
-    	byte[] buffer = new byte[1024];
+    	final byte[] buffer = new byte[1024];
     	int length;
     	while ((length = myInput.read(buffer))>0){
     		myOutput.write(buffer, 0, length);
@@ -102,9 +101,9 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
  
 	@Override
-	public void onCreate(SQLiteDatabase database) {}
+	public void onCreate(final SQLiteDatabase database) {}
  
 	@Override
-	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {}
+	public void onUpgrade(final SQLiteDatabase database,final int oldVersion,final int newVersion) {}
  
 }
