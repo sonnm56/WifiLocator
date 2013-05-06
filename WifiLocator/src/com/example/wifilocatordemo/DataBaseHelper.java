@@ -9,7 +9,6 @@ import java.io.OutputStream;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
@@ -20,7 +19,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 														.getAbsolutePath() +  "/MyFiles/";
 	public static final String  DB_PATH_DEST = "/data/data/com.example.wifilocatordemo/databases/";
     
-    private final String dataBaseName;
+    private transient final String dataBaseName;
  
    
    
@@ -34,23 +33,6 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         dataBaseName = dbName;
     }	
  
-     /**
-     * Check if the database already exist to avoid re-copying the file each time you open the application.
-     * @return true if it exists, false if it doesn't
-     */
-    public boolean checkDataBase(){
-    	SQLiteDatabase checkDB = null;
-    	try{
-    		checkDB = SQLiteDatabase.openDatabase(DB_PATH_DEST + dataBaseName, null, SQLiteDatabase.OPEN_READONLY);
-    	}catch(SQLiteException e){
-    		//database does't exist yet.
-    	}
-    	if(checkDB != null){
-    		checkDB.close();
-    	}
-    	
-    	return checkDB != null;
-    }
  
     /**
      * Copies your database from your local folder to the just created empty database in the
@@ -68,8 +50,9 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     	//transfer bytes from the inputfile to the outputfile
     	final byte[] buffer = new byte[1024];
     	int length;
-    	while ((length = myInput.read(buffer))>0){
+    	for (length = myInput.read(buffer);length>0;){
     		myOutput.write(buffer, 0, length);
+    		length = myInput.read(buffer);
     	}
  
     	//Close the streams
@@ -89,8 +72,9 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     	//transfer bytes from the inputfile to the outputfile
     	final byte[] buffer = new byte[1024];
     	int length;
-    	while ((length = myInput.read(buffer))>0){
+    	for (length = myInput.read(buffer); length>0;){
     		myOutput.write(buffer, 0, length);
+    		length = myInput.read(buffer);
     	}
  
     	//Close the streams
@@ -101,9 +85,13 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
  
 	@Override
-	public void onCreate(final SQLiteDatabase database) {}
+	public void onCreate(final SQLiteDatabase database) {
+		//do nothing
+	}
  
 	@Override
-	public void onUpgrade(final SQLiteDatabase database,final int oldVersion,final int newVersion) {}
+	public void onUpgrade(final SQLiteDatabase database,final int oldVersion,final int newVersion) {
+		//do nothings
+	}
  
 }

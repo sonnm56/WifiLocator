@@ -100,24 +100,24 @@ public class Functions {
 	
 	public static String getPlaceAndPercent(final List<String> place,final List<Integer> maxPercent){
 		int otherPercent = 100;
-		String sPlace = "";
+		final StringBuilder sPlace = new StringBuilder();
 		for(int i = 0;i<place.size();i++){ 
 			otherPercent = otherPercent - maxPercent.get(i);
 		}
 		if(otherPercent >0){
 			for(int i = 0;i<place.size();i++){ 
-				sPlace = sPlace + place.get(i)+"\t\t\t"+maxPercent.get(i)+"\n";
+				sPlace.append(place.get(i)+"\t\t\t"+maxPercent.get(i)+"\n");
 			}
-			sPlace = sPlace + "Other"+"\t\t\t"+otherPercent+"\n";
+			sPlace.append( "Other"+"\t\t\t"+otherPercent+"\n");
 		}
 		else{
 			for(int i = 0;i<place.size();i++){ 
-				sPlace = sPlace + place.get(i)+"\t"+(int)(maxPercent.get(i)*90.0/(100-otherPercent))+"\n";
+				sPlace.append(place.get(i)+"\t"+(int)(maxPercent.get(i)*90.0/(100-otherPercent))+"\n");
 			}
-			sPlace = sPlace + "Other"+"\t"+10+"\n";
+			sPlace.append( "Other"+"\t"+10+"\n");
 		}
 		
-		return sPlace;
+		return sPlace.toString();
 	}
 	
 }

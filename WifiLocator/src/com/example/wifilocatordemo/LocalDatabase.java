@@ -53,10 +53,8 @@ public class LocalDatabase {
         
     	@Override
         public void onCreate(final SQLiteDatabase database){
-    		if(!checkDataBase()){
-    			database.execSQL(CREATE_TABLE);	
-    		}
-        }
+    		database.execSQL(CREATE_TABLE);	
+    	}
     	
         @Override
         public void onUpgrade(final SQLiteDatabase database,final int oldVersion,final int newVersion){

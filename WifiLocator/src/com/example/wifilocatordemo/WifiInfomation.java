@@ -19,12 +19,12 @@ import android.widget.Toast;
 
 public class WifiInfomation extends Activity {
 	private static final String TAG = "WifiInfo";
-	private WifiManager wifi;
-	private BroadcastReceiver receiver;
+	private transient WifiManager wifi;
+	private transient BroadcastReceiver receiver;
 
-	private TextView tvStatus;
-	private Button btScanWiFi;
-	private StringBuilder sbStatus = new StringBuilder();
+	private transient TextView tvStatus;
+	private transient Button btScanWiFi;
+	private transient StringBuilder sbStatus = new StringBuilder();
 
 
 	/** Called when the activity is first created. */

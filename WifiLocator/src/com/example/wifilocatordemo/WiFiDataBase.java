@@ -47,10 +47,8 @@ public class WiFiDataBase {
         
     	@Override
         public void onCreate(final SQLiteDatabase database){
-    		if(!checkDataBase()){
-    				database.execSQL(DATABASE_CREATE);	
-    		}
-        }
+    		database.execSQL(DATABASE_CREATE);	
+    	}
     	
         @Override
         public void onUpgrade(final SQLiteDatabase database,final int oldVersion,final int newVersion){

@@ -15,10 +15,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class TestPassAc extends Activity{
-	private Button btOKChange;
-	private Button btOKPass;
-	private String test,pass;
-	private EditText etHintText,etChange;
+	private transient Button btOKChange;
+	private transient Button btOKPass;
+	private transient String test,pass;
+	private transient EditText etHintText,etChange;
 	
 	@Override
 	protected void onCreate(final Bundle bundle) {
