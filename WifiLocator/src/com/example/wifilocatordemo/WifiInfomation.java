@@ -26,7 +26,6 @@ public class WifiInfomation extends Activity {
 	private transient Button btScanWiFi;
 	private transient StringBuilder sbStatus = new StringBuilder();
 
-
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(final Bundle bundle) {
@@ -35,10 +34,10 @@ public class WifiInfomation extends Activity {
 
 		tvStatus = (TextView) findViewById(R.id.tvStatus);
 		btScanWiFi = (Button) findViewById(R.id.btScanWiFi);
-		
-		
+
 	}
-	public void onResume(){
+
+	public void onResume() {
 		super.onResume();
 		btScanWiFi.setOnClickListener(new View.OnClickListener() {
 			public void onClick(final View view) {
@@ -55,8 +54,8 @@ public class WifiInfomation extends Activity {
 		});
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		wifi.setWifiEnabled(true);
-		
-		if (receiver == null){
+
+		if (receiver == null) {
 			receiver = new WiFiScanReceiver();
 		}
 
@@ -65,28 +64,26 @@ public class WifiInfomation extends Activity {
 		Log.d(TAG, "onCreate()");
 
 	}
-	
+
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		wifi.setWifiEnabled(false);
-		super.onDestroy();	
+		super.onDestroy();
 	}
-	
+
 	class WiFiScanReceiver extends BroadcastReceiver {
-		
+
 		@Override
-		public void onReceive(final Context context,final Intent intent) {
-		  	 sbStatus = new StringBuilder();
-		  	 final List<ScanResult> results = wifi.getScanResults();
-		     for(int i = 0; i < results.size(); i++){
-		  		 sbStatus.append(results.get(i).toString());
-		  		 sbStatus.append("\n");
-		  	 }
-		     tvStatus.setText(sbStatus);
-			
+		public void onReceive(final Context context, final Intent intent) {
+			sbStatus = new StringBuilder();
+			final List<ScanResult> results = wifi.getScanResults();
+			for (int i = 0; i < results.size(); i++) {
+				sbStatus.append(results.get(i).toString());
+				sbStatus.append("\n");
+			}
+			tvStatus.setText(sbStatus);
+
 		}
 
 	}
 }
-
-

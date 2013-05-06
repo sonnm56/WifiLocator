@@ -11,6 +11,5 @@ public class Guide extends Activity {
 		super.onCreate(bundle);
 		setContentView(R.layout.guide);
 	}
-	
 
 }

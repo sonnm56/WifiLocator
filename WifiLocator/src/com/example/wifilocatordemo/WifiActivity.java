@@ -6,7 +6,6 @@
  * */
 package com.example.wifilocatordemo;
 
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,15 +25,17 @@ public class WifiActivity extends Activity {
 		getMenuInflater().inflate(R.menu.wifiinfo, menu);
 		return true;
 	}
-	
-//---Some links to go to functions---
-	public void onClickWiFiInformation(final View view){
-		startActivity(new Intent(WifiActivity.this,WifiInfomation.class));
+
+	// ---Some links to go to functions---
+	public void onClickWiFiInformation(final View view) {
+		startActivity(new Intent(WifiActivity.this, WifiInfomation.class));
 	}
-	public void onClickFindPlace(final View view){
-		startActivity(new Intent(WifiActivity.this,WiFiUsingDatabase.class));
+
+	public void onClickFindPlace(final View view) {
+		startActivity(new Intent(WifiActivity.this, WiFiUsingDatabase.class));
 	}
-	public void onClickGuide(final View view){
-		startActivity(new Intent(WifiActivity.this,Guide.class));
+
+	public void onClickGuide(final View view) {
+		startActivity(new Intent(WifiActivity.this, Guide.class));
 	}
 }
