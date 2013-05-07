@@ -48,7 +48,7 @@ public class Functions {
 	}
 
 	/*
-	 * change to move information from wifiList to database There are 2
+	 * convert to move information from wifiList to database.There are 2
 	 * functions : -makeWifiBSSID -makeWifiLevel
 	 */
 	public static String makeWifiBSSID(final List<ScanResult> wifiList) {
@@ -104,6 +104,10 @@ public class Functions {
 		return wifiLevelList;
 	}
 
+	/*
+	 * Convert to string the place and percent
+	 * to show it later
+	 */
 	public static String getPlaceAndPercent(final List<String> place,
 			final List<Integer> maxPercent) {
 		int otherPercent = 100;
@@ -114,17 +118,17 @@ public class Functions {
 		if (otherPercent > 0) {
 			for (int i = 0; i < place.size(); i++) {
 				sPlace.append(place.get(i) + "\t\t\t" + maxPercent.get(i)
-						+ "\n");
+						+ "%\n");
 			}
-			sPlace.append("Other" + "\t\t\t" + otherPercent + "\n");
+			sPlace.append("Other" + "\t\t\t" + otherPercent + "%\n");
 		} else {
 			for (int i = 0; i < place.size(); i++) {
 				sPlace.append(place.get(i)
 						+ "\t"
 						+ (int) (maxPercent.get(i) * 90.0 / (100 - otherPercent))
-						+ "\n");
+						+ "%\n");
 			}
-			sPlace.append("Other" + "\t" + 10 + "\n");
+			sPlace.append("Other" + "\t" + 10 + "%\n");
 		}
 
 		return sPlace.toString();

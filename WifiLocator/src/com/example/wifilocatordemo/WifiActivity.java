@@ -26,7 +26,7 @@ public class WifiActivity extends Activity {
 		return true;
 	}
 
-	// ---Some links to go to functions---
+	// ---links to go to functions---
 	public void onClickWiFiInformation(final View view) {
 		startActivity(new Intent(WifiActivity.this, WifiInfomation.class));
 	}

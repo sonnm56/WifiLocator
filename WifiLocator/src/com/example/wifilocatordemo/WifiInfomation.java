@@ -70,7 +70,10 @@ public class WifiInfomation extends Activity {
 		wifi.setWifiEnabled(false);
 		super.onDestroy();
 	}
-
+	
+	/*
+	 * Show the wifi information the device received 
+	 * */
 	class WiFiScanReceiver extends BroadcastReceiver {
 
 		@Override

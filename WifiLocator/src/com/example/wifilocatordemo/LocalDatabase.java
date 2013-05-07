@@ -66,8 +66,7 @@ public class LocalDatabase {
 		}
 	}
 
-	/**************************
-	 * FUNCTIONS****************************
+	/**************************FUNCTIONS****************************
 	 * 
 	 * These methods make database to easy to use We can use these to make
 	 * table, edit info find info and ex-import information from file
@@ -139,7 +138,11 @@ public class LocalDatabase {
 		final int maxNumberPlace = mCursor.getCount();
 		final List<String> place = new ArrayList<String>();
 		final List<Integer> maxPercent = new ArrayList<Integer>();
-
+		
+		/*
+		 * Show the places that have wifiBSSID and calculate the percent
+		 * of them
+		 */
 		if (maxNumberPlace != 0) {
 			mCursor.moveToFirst();
 			do {
@@ -148,12 +151,16 @@ public class LocalDatabase {
 				int percent = 10;
 				final int[] wifiLevel = Functions.makeListWifiLevel(Integer
 						.parseInt(mCursor.getString(2)));
+				
+				//calculate the percent
 				for (int i = 0; i < wifiLevel.length; i++) {
 					if (wifiLevel[i] - 5 < listLevel[i]
 							&& listLevel[i] < wifiLevel[i] + 5) {
 						percent = percent + 7 * i + 7;
 					}
 				}
+				
+				//if this place have percents, choose the max percent
 				for (int i = 0; i < sizePlace; i++) {
 					if (mCursor.getString(0).equals(place.get(i))) {
 						if (maxPercent.get(i) < percent) {
@@ -163,11 +170,14 @@ public class LocalDatabase {
 						break;
 					}
 				}
+				//Add new place and this percent to list
 				if (check == 0) {
 					place.add(mCursor.getString(0));
 					maxPercent.add(percent);
 				}
 			} while (mCursor.moveToNext());
+			
+			//To String the place and percent list
 			sPlace = Functions.getPlaceAndPercent(place, maxPercent);
 			mCursor.close();
 

@@ -114,6 +114,8 @@ public class WiFiUsingDatabase extends Activity {
 					Functions.makeWifiBSSID(results),
 					Functions.makeListWifiLevel(results));
 			String globalPlace = NOT_FOUND;
+			
+			//Show the global place
 			for (int i = 0; i < results.size(); i++) {
 				globalPlace = wifiDataBase.getPlace(results.get(i).BSSID);
 				if (!globalPlace.equals(NOT_FOUND)) {
@@ -123,6 +125,10 @@ public class WiFiUsingDatabase extends Activity {
 			testIfExist = (boolean) (!globalPlace.equals(NOT_FOUND));
 			tvGlobalPlace.setText(globalPlace);
 
+			/*
+			 * Show the local place. And if it is "Not Found" 
+			 * delay "timeDelayNotFound" seconds 
+			 */
 			if (!localPlaceList.equals(NOT_FOUND)) {
 				tvLocalPlace.setText(localPlaceList);
 				timeDelayNotFound = 0;
@@ -140,10 +146,11 @@ public class WiFiUsingDatabase extends Activity {
 
 	// ------------------On Click Functions-------------
 	/*
-	 * we have some button here: Find = onClickStartFind to find place Add Place
-	 * = onClickAddPlace to add new place Import = onClickImport to load
-	 * informations from file Export = onClickExport to save informations to
-	 * file
+	 * we have some button here:
+	 * 		Find = onClickStartFind to find place.
+	 * 		Add Place = onClickAddPlace to add new place .
+	 * 		Import = onClickImport to load informations from file .
+	 * 		Export = onClickExport to save informations to file
 	 */
 
 	public void onClickStartFind(final View view) {
@@ -185,7 +192,7 @@ public class WiFiUsingDatabase extends Activity {
 			etAddLocal = (EditText) popupView.findViewById(R.id.etAddLocal);
 			etAddLocal.setHint("enter the local place");
 
-			popupWindow.showAsDropDown(btAddPlace, -450, 100);
+			popupWindow.showAsDropDown(btAddPlace, 150, 100);
 		}
 	}
 
@@ -215,7 +222,7 @@ public class WiFiUsingDatabase extends Activity {
 		}
 	}
 
-	// ---OnClick Functions in popup AddPlace---
+	// ---OnClick Functions in popup window "AddPlace"---
 	public void onClickCancelAddPlace(final View view) {
 		// TODO Auto-generated method stub
 		click = false;

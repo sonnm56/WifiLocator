@@ -1,5 +1,6 @@
 package com.example.wifilocatordemo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,7 +17,8 @@ import android.os.Environment;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
 	public static final String DB_PATH_SOURCE = Environment
-			.getExternalStorageDirectory().getAbsolutePath() + "/MyFiles/";
+			.getExternalStorageDirectory().getAbsolutePath() + "/MyFiles";
+	     
 	public static final String DB_PATH_DEST = "/data/data/com.example.wifilocatordemo/databases/";
 
 	private transient final String dataBaseName;
@@ -40,7 +42,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	public void importDataBase() throws IOException {
 
 		// Open your local db as the input stream
-		final InputStream myInput = new FileInputStream(DB_PATH_SOURCE
+		final InputStream myInput = new FileInputStream(DB_PATH_SOURCE+"/"
 				+ dataBaseName);
 
 		// Open the empty db as the output stream
@@ -69,8 +71,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 				+ dataBaseName);
 
 		// Open the empty db as the output stream
+		File directory = new File (DB_PATH_SOURCE);
+		directory.mkdirs();
 		final OutputStream myOutput = new FileOutputStream(DB_PATH_SOURCE
-				+ dataBaseName);
+				+"/"+ dataBaseName);
 
 		// transfer bytes from the inputfile to the outputfile
 		final byte[] buffer = new byte[1024];
