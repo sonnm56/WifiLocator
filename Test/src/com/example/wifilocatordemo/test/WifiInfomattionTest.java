@@ -3,15 +3,11 @@
  */
 package com.example.wifilocatordemo.test;
 
-import com.example.wifilocatordemo.TestPassAc;
-import com.example.wifilocatordemo.WiFiDataBase;
 import com.example.wifilocatordemo.WifiInfomation;
 
 import android.content.BroadcastReceiver;
 import android.net.wifi.WifiManager;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.AndroidTestCase;
-import android.test.RenamingDelegatingContext;
 import android.test.ViewAsserts;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,6 +29,7 @@ public class WifiInfomattionTest extends ActivityInstrumentationTestCase2<WifiIn
 		super(name);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public WifiInfomattionTest() {
 		super("com.example.wifilocatordemo", WifiInfomation.class);
 	}

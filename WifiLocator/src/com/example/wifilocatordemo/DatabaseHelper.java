@@ -14,14 +14,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
 @SuppressLint("SdCardPath")
-public class DataBaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public static final String DB_PATH_SOURCE = Environment
 			.getExternalStorageDirectory().getAbsolutePath() + "/MyFiles";
 	     
 	public static final String DB_PATH_DEST = "/data/data/com.example.wifilocatordemo/databases/";
 
-	private transient final String dataBaseName;
+	private transient final String databaseName;
 
 	/**
 	 * Constructor Takes and keeps a reference of the passed context in order to
@@ -29,9 +29,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	 * 
 	 * @param context
 	 */
-	public DataBaseHelper(final Context context, final String dbName) {
+	public DatabaseHelper(final Context context, final String dbName) {
 		super(context, dbName, null, 1);
-		dataBaseName = dbName;
+		databaseName = dbName;
 	}
 
 	/**
@@ -39,15 +39,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	 * database in the system folder, from where it can be accessed and handled.
 	 * This is done by transfering bytestream.
 	 * */
-	public void importDataBase() throws IOException {
+	public void importDatabase() throws IOException {
 
 		// Open your local db as the input stream
 		final InputStream myInput = new FileInputStream(DB_PATH_SOURCE+"/"
-				+ dataBaseName);
+				+ databaseName);
 
 		// Open the empty db as the output stream
 		final OutputStream myOutput = new FileOutputStream(DB_PATH_DEST
-				+ dataBaseName);
+				+ databaseName);
 
 		// transfer bytes from the inputfile to the outputfile
 		final byte[] buffer = new byte[1024];
@@ -64,17 +64,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	}
 
-	public void exportDataBase() throws IOException {
+	public void exportDatabase() throws IOException {
 
 		// Open your local db as the input stream
 		final InputStream myInput = new FileInputStream(DB_PATH_DEST
-				+ dataBaseName);
+				+ databaseName);
 
 		// Open the empty db as the output stream
 		File directory = new File (DB_PATH_SOURCE);
 		directory.mkdirs();
 		final OutputStream myOutput = new FileOutputStream(DB_PATH_SOURCE
-				+"/"+ dataBaseName);
+				+"/"+ databaseName);
 
 		// transfer bytes from the inputfile to the outputfile
 		final byte[] buffer = new byte[1024];

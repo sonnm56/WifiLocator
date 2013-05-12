@@ -43,8 +43,8 @@ public class WiFiUsingDatabase extends Activity {
 	private EditText etAddLocal;
 
 	private List<ScanResult> results;
-	private LocalDatabase localDataBase;
-	private WiFiDataBase wifiDataBase;
+	private LocalDatabase localDatabase;
+	private GlobalDatabase globalDatabase;
 	private PopupWindow popupWindow;
 	private int timeDelayNotFound;
 
@@ -63,10 +63,10 @@ public class WiFiUsingDatabase extends Activity {
 
 		btAddPlace = (Button) findViewById(R.id.btAddPlace);
 
-		wifiDataBase = new WiFiDataBase(this, "globalplace");
-		wifiDataBase.open();
-		localDataBase = new LocalDatabase(this, "localplace");
-		localDataBase.open();
+		globalDatabase = new GlobalDatabase(this, "globalplace");
+		globalDatabase.open();
+		localDatabase = new LocalDatabase(this, "localplace");
+		localDatabase.open();
 		click = false;
 		testIfExist = false;
 		timeDelayNotFound = 0;
@@ -76,7 +76,7 @@ public class WiFiUsingDatabase extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-		localDataBase.open();
+		localDatabase.open();
 
 		wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		wifi.setWifiEnabled(true);
@@ -93,8 +93,8 @@ public class WiFiUsingDatabase extends Activity {
 	public void onDestroy() {
 		unregisterReceiver(receiver);
 		wifi.setWifiEnabled(false);
-		localDataBase.close();
-		wifiDataBase.close();
+		localDatabase.close();
+		globalDatabase.close();
 		super.onDestroy();
 	}
 
@@ -110,14 +110,14 @@ public class WiFiUsingDatabase extends Activity {
 			results = wifi.getScanResults();
 
 			Functions.rankWifiListBSSID(results);
-			final String localPlaceList = localDataBase.getPlace(
+			final String localPlaceList = localDatabase.getPlace(
 					Functions.makeWifiBSSID(results),
 					Functions.makeListWifiLevel(results));
 			String globalPlace = NOT_FOUND;
 			
 			//Show the global place
 			for (int i = 0; i < results.size(); i++) {
-				globalPlace = wifiDataBase.getPlace(results.get(i).BSSID);
+				globalPlace = globalDatabase.getPlace(results.get(i).BSSID);
 				if (!globalPlace.equals(NOT_FOUND)) {
 					break;
 				}
@@ -198,8 +198,8 @@ public class WiFiUsingDatabase extends Activity {
 
 	public void onClickImport(final View view) {
 		try {
-			localDataBase.importDataBase();
-			wifiDataBase.importDataBase();
+			localDatabase.importDatabase();
+			globalDatabase.importDatabase();
 			Toast.makeText(getApplicationContext(), "sucessful!",
 					Toast.LENGTH_SHORT).show();
 		} catch (IOException e) {
@@ -211,8 +211,8 @@ public class WiFiUsingDatabase extends Activity {
 
 	public void onClickExport(final View view) {
 		try {
-			localDataBase.exportDataBase();
-			wifiDataBase.exportDataBase();
+			localDatabase.exportDatabase();
+			globalDatabase.exportDatabase();
 			Toast.makeText(getApplicationContext(), "sucessful!",
 					Toast.LENGTH_SHORT).show();
 		} catch (IOException e) {
@@ -243,10 +243,10 @@ public class WiFiUsingDatabase extends Activity {
 
 	public void onClickOKAdd(final View view) {
 
-		localDataBase.insertPlace(etAddLocal.getText().toString(), results);
+		localDatabase.insertPlace(etAddLocal.getText().toString(), results);
 		if (!testIfExist) {
 			for (int i = 0; i < results.size(); i++) {
-				wifiDataBase.insertPlace(etAddGlobal.getText().toString(),
+				globalDatabase.insertPlace(etAddGlobal.getText().toString(),
 						results.get(i).BSSID);
 			}
 		}

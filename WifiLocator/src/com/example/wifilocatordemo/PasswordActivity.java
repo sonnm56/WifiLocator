@@ -13,7 +13,7 @@ import android.widget.EditText;
 //import android.widget.TextView;
 import android.widget.Toast;
 
-public class TestPassAc extends Activity {
+public class PasswordActivity extends Activity {
 	private transient Button btOKChange;
 	private transient Button btOKPass;
 	private transient String test, pass;
@@ -98,7 +98,7 @@ public class TestPassAc extends Activity {
 		 */
 		if (test.compareTo(pass) == 0) {
 			etHintText.setText("");
-			startActivity(new Intent(TestPassAc.this, WifiActivity.class));
+			startActivity(new Intent(PasswordActivity.this, WifiActivity.class));
 		}
 
 		/*

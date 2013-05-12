@@ -1,14 +1,14 @@
 package com.example.wifilocatordemo.test;
 
-import com.example.wifilocatordemo.WiFiDataBase;
+import com.example.wifilocatordemo.GlobalDatabase;
 
 import android.database.Cursor;
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
 
-public class WiFiDataBaseTest extends AndroidTestCase {
+public class GlobalDatabaseTest extends AndroidTestCase {
 	  private static final String TEST_FILE_PREFIX = "test_";
-	  private WiFiDataBase test;  
+	  private GlobalDatabase test;  
 	    
 	  @Override
 	  protected void setUp() throws Exception {
@@ -17,7 +17,7 @@ public class WiFiDataBaseTest extends AndroidTestCase {
 	      RenamingDelegatingContext context 
 	          = new RenamingDelegatingContext(getContext(), TEST_FILE_PREFIX);
 
-	      test = new WiFiDataBase(context,"test_");
+	      test = new GlobalDatabase(context,"test_");
 	      test.open();
 	  }
 	  Cursor c1;

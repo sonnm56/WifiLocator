@@ -1,29 +1,29 @@
 package com.example.wifilocatordemo.test;
 import android.test.*;
-import com.example.wifilocatordemo.TestPassAc;
+import com.example.wifilocatordemo.PasswordActivity;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc> {
+public class PasswordActivityTest extends ActivityInstrumentationTestCase2<PasswordActivity> {
 	EditText etHintText;
 	Button btOKPass;
 	Button btChange;
 	Button btOKChange;
-	TestPassAc activity;
+	PasswordActivity activity;
 	
 
-	public TestPassAcTest(Class<TestPassAc> name) {
+	public PasswordActivityTest(Class<PasswordActivity> name) {
 		super(name);
 		//TestPassAc testPassAC = getActivity();
 
 		
 	}
 	@SuppressWarnings("deprecation")
-	public TestPassAcTest(){
-		super("com.example.wifilocatordemo", TestPassAc.class);
+	public PasswordActivityTest(){
+		super("com.example.wifilocatordemo", PasswordActivity.class);
 		
 	}
 	protected void setUp() throws Exception {
@@ -61,18 +61,5 @@ public class TestPassAcTest extends ActivityInstrumentationTestCase2<TestPassAc>
 	    
 	    
 	  }
-	  
-	  @SmallTest
-	  public void testKilosToPounds() {
-	    etHintText.clearComposingText();
-	    btOKPass.clearComposingText();
-	    
-	    TouchUtils.tapView(this, etHintText);
-	    sendKeys("123abc");
-	    
-	    assertTrue("1 kilo is 2.20462262 pounds", true);
-	  }
-	
 
-	
 }

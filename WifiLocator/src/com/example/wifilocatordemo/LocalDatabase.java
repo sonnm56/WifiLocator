@@ -23,21 +23,21 @@ public class LocalDatabase {
 	private static final String KEY_WIFI_LEVEL = "wifiLevel";
 
 	private static final String TAG = "LocalDataBase";
-	private static String dataBaseName;
+	private static String databaseName;
 	private static final String DATABASE_TABLE = "LocalPlaces";
 	private static final String CREATE_TABLE = "create table " + DATABASE_TABLE
 			+ " (" + KEY_PLACE + " text not null, " + KEY_WIFI_BSSID
 			+ " text not null, " + KEY_WIFI_LEVEL + " integer not null);";
 
 	private final Context context;
-	private final localDatabaseHelper dbHelper;
+	private final LocalDatabaseHelper dbHelper;
 	private SQLiteDatabase sqDatabase;
 
 	// ---Constructor---
 	public LocalDatabase(final Context ctx, final String dbName) {
 		this.context = ctx;
-		dataBaseName = dbName.toLowerCase();
-		dbHelper = new localDatabaseHelper(context);
+		databaseName = dbName.toLowerCase();
+		dbHelper = new LocalDatabaseHelper(context);
 	}
 
 	// ---Main class---
@@ -45,10 +45,10 @@ public class LocalDatabase {
 	 * This class extend DataBaseHelper can be use to create , load and save
 	 * data base
 	 */
-	static class localDatabaseHelper extends DataBaseHelper {
+	static class LocalDatabaseHelper extends DatabaseHelper {
 
-		localDatabaseHelper(final Context context) {
-			super(context, dataBaseName);
+		LocalDatabaseHelper(final Context context) {
+			super(context, databaseName);
 		}
 
 		@Override
@@ -85,13 +85,13 @@ public class LocalDatabase {
 	}
 
 	// ---import database from file---
-	public void importDataBase() throws IOException {
-		dbHelper.importDataBase();
+	public void importDatabase() throws IOException {
+		dbHelper.importDatabase();
 	}
 
 	// ---export database to file---
-	public void exportDataBase() throws IOException {
-		dbHelper.exportDataBase();
+	public void exportDatabase() throws IOException {
+		dbHelper.exportDatabase();
 	}
 
 	// ---insert a place into the database---
@@ -132,7 +132,8 @@ public class LocalDatabase {
 
 	// ---retrieves a place---
 	public String getPlace(final String wifiBSSID, final int[] listLevel)
-			throws SQLException {
+			throws SQLException 
+	{
 		final Cursor mCursor = getPlaceInfo(wifiBSSID);
 		String sPlace = "";
 		final int maxNumberPlace = mCursor.getCount();

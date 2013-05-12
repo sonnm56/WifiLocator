@@ -12,25 +12,25 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class WiFiDataBase {
+public class GlobalDatabase {
 
 	private static final String KEY_PLACE = "place";
 	private static final String KEY_WIFI = "WiFiInfo";
-	private static final String TAG = "WiFiDataBase";
-	private static String dataBaseName;
+	private static final String TAG = "WifiDatafase";
+	private static String databaseName;
 	private static final String DATABASE_TABLE = "places";
 	private static final String DATABASE_CREATE = "create table places ("
 			+ "place text not null, WiFiInfo text not null);";
 
 	private final Context context;
-	private final DatabaseHelper dbHelper;
+	private final GlobalDatabaseHelper dbHelper;
 	private SQLiteDatabase sqDatabase;
 
 	// ---Constructor---
-	public WiFiDataBase(final Context ctx, final String dbName) {
+	public GlobalDatabase(final Context ctx, final String dbName) {
 		this.context = ctx;
-		dataBaseName = dbName.toLowerCase();
-		dbHelper = new DatabaseHelper(context);
+		databaseName = dbName.toLowerCase();
+		dbHelper = new GlobalDatabaseHelper(context);
 	}
 
 	// ---Main class---
@@ -38,10 +38,10 @@ public class WiFiDataBase {
 	 * This class extend DataBaseHelper can be use to create , load and save
 	 * data base
 	 */
-	static class DatabaseHelper extends DataBaseHelper {
+	static class GlobalDatabaseHelper extends DatabaseHelper {
 
-		DatabaseHelper(final Context context) {
-			super(context, dataBaseName);
+		GlobalDatabaseHelper(final Context context) {
+			super(context, databaseName);
 		}
 
 		@Override
@@ -59,8 +59,7 @@ public class WiFiDataBase {
 		}
 	}
 
-	/**************************
-	 * FUNCTIONS****************************
+	/**************************FUNCTIONS****************************
 	 * 
 	 * These methods make database to easy to use We can use these to make
 	 * table, edit info find info and ex-import information from file
@@ -68,7 +67,7 @@ public class WiFiDataBase {
 	 * */
 
 	// ---opens the database---
-	public WiFiDataBase open() throws SQLException {
+	public GlobalDatabase open() throws SQLException {
 		sqDatabase = dbHelper.getWritableDatabase();
 		return this;
 	}
@@ -79,13 +78,13 @@ public class WiFiDataBase {
 	}
 
 	// ---import database from file---
-	public void importDataBase() throws IOException {
-		dbHelper.importDataBase();
+	public void importDatabase() throws IOException {
+		dbHelper.importDatabase();
 	}
 
 	// ---export database to file---
-	public void exportDataBase() throws IOException {
-		dbHelper.exportDataBase();
+	public void exportDatabase() throws IOException {
+		dbHelper.exportDatabase();
 	}
 
 	// ---insert a place into the database---
